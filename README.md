@@ -2,6 +2,7 @@
 ![img](https://www.cecyted.edu.mx/festivalacademico/estatal1/gobierno.png)
 ![img](https://www.itmatamoros.edu.mx/wp-content/uploads/Imagenes_Generales/Logo_TecNM.png)
 ![img](https://www.tijuana.tecnm.mx/wp-content/themes/tecnm/images/logo_TECT.png)
+
 TECNOLÓGICO NACIONAL DE MEXICO
 INSTITUTO TECNOLÓGICO DE TIJUANA
 
