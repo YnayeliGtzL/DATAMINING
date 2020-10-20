@@ -6,7 +6,7 @@ Table of contents
 
 - [Practice 1](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_1.r)
 - [Practice 2](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_2.r)
-- [Practice 3](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_3.r)
+- [Practice 3](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_3.R)
 
 <div id='pr1' />
 
