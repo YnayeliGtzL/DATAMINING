@@ -4,9 +4,9 @@
 
 Table of contents 
 
-1.- [Practice 1](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_1.r)
-2.- [Practice 2](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_2.r)
-3.- [Practice 3](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_3.r)
+- [Practice 1](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_1.r)
+- [Practice 2](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_2.r)
+- [Practice 3](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Practice/Practice_3.r)
 
 <div id='pr1' />
 
