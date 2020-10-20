@@ -22,14 +22,30 @@ unique () # Returns a similar object but suppresses duplicate elements
 # 10
 plot () #Organize data on y-axis ordered by x
 #11
-# 12
-# 13
-# 14
-# 15
-# 16
-# 17
-# 18
-# 19
-# 20
+vector <- c(1,2,3) 
+names(vector)<- c("uno","dos", "tres") #allow to allocate names to the values in the vector
+vector
+#12
+get("vector")   #search and call an data object 
+#13
+get0("vector", ifnotfound = "no disponible")      #search and call an data object and allow to specify an action in case of not finding the object
+#14
+first(vector) #return the first value registered in the vector
+#15
+last(vector)  # return the last value registered in the vector  
+#16
+x1 <- expression(2^3)  #creates an expression in R and is stored in x1
+x1 
+#17                               
+class(x1)  #checks the data class 
+#18
+eval(x1)  # evaluates the expression saved
+#19
+set.seed(9562421)   # creates a sample 
+x <- rnorm(1000)
+y<- rnorm(1000) + .3 * x
+#20
+plot(density(x))  #from the plot creates a graph with the density of x
+
 
 

@@ -41,7 +41,7 @@ print (result)
 ``` 
 
 <div id='pr2'/>
-#Practice 2
+## Practice 2
 Functions
 
 Practice find 20 more functions in R and make an example of it.
@@ -84,4 +84,10 @@ unique ()
 10. Organize data on y-axis ordered by x
 ```
 plot () 
+```
+
+11. allow to allocate names to the values in the vector
+```
+vector <- c(1,2,3) 
+names(vector)<- c("uno","dos", "tres") 
 ```
