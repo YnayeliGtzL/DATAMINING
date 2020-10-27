@@ -452,7 +452,7 @@ qplot(data = merged_2013, x =Fertility.Rate , y = Life.Expectancy.2013,
 Due to the enormous number of countries from which data are extracted when making this grouping, the symbology becomes extensive and the plot of this relationship appears small
 >1960
 
-![img]()
+![img](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Evaluative_Practice/Countryplot1960.png?raw=true)
 
 >2013
 
@@ -461,7 +461,7 @@ Due to the enormous number of countries from which data are extracted when makin
 
 1960
 Some important data that we can take from the graph is that the countries of the African region have a very high fertility rate but have a fairly low life expectancy, the vast majority hovering between 35 and 50. On the other hand, we have the region of Europe where they have a reduced fertility rate but a higher life expectancy circulating between 65 to 75. What we can say is that the higher the socioeconomic level in the region, the higher the life expectancy. will be
-![img]()
+![img](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Evaluative_Practice/Regionplot1960.png?raw=true)
 2013
 The plot shows us this scatter plot in which we can visualize the data grouped by colors of the data regions.
 When analyzing the graph we can see that the country with the highest life expectancy is Europe because the culture of this is very different from the rest of the others, compared to Africa we have the two extremes in one the children are from one to two and while that in Africa they are 4 to 6 or more.

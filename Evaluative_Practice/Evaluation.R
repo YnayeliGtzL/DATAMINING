@@ -9,9 +9,9 @@ stats1 <- read.csv(file.choose())
 stats1
 
 #We split the data to years 
-años <- split(stats1, stats1$Year)
-año.1960=años[[1]]
-año.1960
+aï¿½os <- split(stats1, stats1$Year)
+aï¿½o.1960=aï¿½os[[1]]
+aï¿½o.1960
 
 paises <- split(stats1, stats1$Region)
 pais=paises[[1]]
@@ -26,7 +26,7 @@ mydf.1960
 #margin the data frames 
 head(stats1)
 
-merged.1960 <- merge(año.1960, mydf.1960,  by.x = "Country.Code", by.y = "Code")
+merged.1960 <- merge(aï¿½o.1960, mydf.1960,  by.x = "Country.Code", by.y = "Code")
 head(merged.1960)
 merged.1960
 
@@ -63,7 +63,7 @@ head(mydf2)
 mydf2
 
 #The data merged
-merged_2013 <- merge(año.2013, mydf2,  by.x = "Country.Code", by.y = "Code")
+merged_2013 <- merge(aï¿½o.2013, mydf2,  by.x = "Country.Code", by.y = "Code")
 head(merged_2013)
 merged_2013
 
@@ -71,4 +71,9 @@ merged_2013
 qplot(data = merged_2013, x =Fertility.Rate , y = Life.Expectancy.2013,
       color = Region, size=I(3), shape=I(19), alpha =I(.4), 
       main = "Fertility for Life Expectancy group by Region 2013")
+
+#Visualizing the data in plot group by country
+qplot(data = merged_2013, x =Fertility.Rate , y = Life.Expectancy.2013,
+      color = Country.Name, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility for Life Expectancy group by Country 2013")
 #(c) Kirill Eremenko, www.superdatascience.com
