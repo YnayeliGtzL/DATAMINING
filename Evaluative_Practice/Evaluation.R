@@ -13,7 +13,9 @@ años <- split(stats1, stats1$Year)
 año.1960=años[[1]]
 año.1960
 
-
+paises <- split(stats1, stats1$Region)
+pais=paises[[1]]
+pais
 #Creating data frames form the new vectors
 
 mydf.1960 <- data.frame( Code= Country_Code, Life.Expectancy.1960 = Life_Expectancy_At_Birth_1960)
@@ -35,13 +37,24 @@ library(ggplot2)
 
 
 #Visualizing the data in a plot 
-ggplot(merged.1960, aes(x = Fertility.Rate, y = Life.Expectancy.1960, color=Region)) +
-  geom_point(aes(color = factor(Region))) + geom_smooth(method=lm, se=FALSE, fullrange=TRUE)
+qplot(data = merged.1960, x =Fertility.Rate , y = Life.Expectancy.1960,
+      color = Region, size=I(3), shape=I(19), alpha =I(.4), 
+      main = "Fertility for Life Expectancy group by Region 1960")
+
+ggplot(merged.1960, aes(x = Fertility.Rate, y = Life.Expectancy.1960, 
+                        color=Country.Name)) +
+  geom_point(aes(color = factor(Country.Name))) + 
+  geom_smooth(method=lm, se=FALSE, fullrange=TRUE)
+
+ggplot(merged.1960, aes(x = Fertility.Rate, y = Life.Expectancy.1960, 
+                        color=Region)) +
+  geom_point(aes(color = factor(Region))) + 
+  geom_smooth(method=lm, se=FALSE, fullrange=TRUE)
 
 # 2013 year
 #We split the data to years 
-año.2013=años[[2]]
-año.2013
+aÃ±o.2013=aÃ±os[[2]]
+aÃ±o.2013
 
 #Creating new data frame for the new vectors
 mydf2 <- data.frame( Code= Country_Code, 
