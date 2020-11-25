@@ -16,10 +16,19 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unidad 2](#unidad-2)
+    - [Practice 1](#U2-practice-1)
+    - [Investigation](#U2-investigation)
+      - [Grammar of Graphics](#Grammar-of-Graphics)
+      - [Grammar of Graphics 2](#Grammar-of-Graphics-2)
+    - [Evaluative Practice](#U2-evaluative-practice)
+    
+    
+
 <div id='pr1' />
 
 
 # Unidad 1
+___
 ## Practice 1
 
 ---
@@ -482,3 +491,124 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 
 
 # Unidad 2
+___
+## U2 Practice 1
+
+---
+
+### Functions
+
+Practice find 5 more  ggplot functions in R and make an example of it.
+
+
+**Geom bar**
+
+This geometry generates a bar plotter (bar graph), we select in X asthe data will be grouped
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2.  We generate the plot with simple attributes to ggplot we send it as a parameter ofdata the data frame called year 1960 and to this we add the geometry ofgeom_bar with the aesthetics of the X axis is assigned that we will take Region as ourindependent variable.
+
+```r
+ggplot(data=año.1960) + geom_bar(aes(x=Región))
+```
+
+**Geom Polygon**
+
+This library generates a plot in a geometric way according to the dataprovided, in the following example we will show the mapping of a region with data fromlatitude and longitude
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We generate the plott in black and white, with the axes according to latitude and longitude
+```r
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black")
+```
+
+> 3. To the next we add map projections to make it have a sizesuitable for the work area. coord_quickmap () it is a quick approximationkeep straight lines
+```r
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") +
+  coord_quickmap()
+```
+
+**Geom Boxplot**
+
+The box plot is used in numerical variables since it will provide us with both themedian such as quartiles and outliers Create boxes in which data can be grouped,color them and show the distribution of the data
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We create a simple graph where we specify the dataset and add the functiongeometric boxplot, which will allow us to visualize the data in the form of a box, andto represent the data as required we use aes with the factorcorresponding, in this case "x" is am and "y" is mpg
+```r
+ggplot(data = mtcars) + geom_boxplot(aes(x=factor(am), y=mpg))
+```
+
+**Facet Grid**
+
+One way to add additional variables is with aesthetic ones. Another way particularlyuseful for categorical variables is to divide the graph into facets, that is,sub-graphs each showing a subset of the data
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. ggplot where we specify the data, a is to tell how we want to visualizethe data and geopoint to define the geometry type
+```r
+ggplot(mtcars, aes(mpg, qsec)) + geom_point(aes(size = hp), alpha = 0.4)
+```
+
+> 3. How do you want to separate the graph into facets according to the combinations of twovariables is added facet_grid () to the code, separating the two factors with a ~
+```r
++ facet_grid(factor(cyl)~factor(am))
+```
+
+
+### **Geom Violin**
+
+Violin charts allow you to visualize the distribution of a numeric variable for one orvarious groups. It is very close to a boxplot, but allows a deeper understandingof density. Violins are especially suited when the amount of data ishuge and it is impossible to show individual observations. The violin graphics area very convenient way to display the data and probably deserves more attentioncompared to box plots which can sometimes hide characteristics of thedata
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We load the data frame, select the axes of the graph and its fill,we add the violin geometry with a transparency of 0.6, we modify withlabs the labels of the plot
+```r
+  ggplot(iris, aes(x=Species, y=Sepal.Width, fill=Species)) +
+    geom_violin(alpha=0.6) +
+    labs(title="Iris", 
+         subtitle="Distribución del ancho del sépalo por especie", 
+         caption="Fuente: Edgar Anderson's Iris Data", 
+         y="Ancho del sépalo", 
+         x="Especie",
+         color=NULL) +
+    theme_elegante()
+```
+
+## U2 Investigation
+---
+### Grammar of Graphics
+In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. -- Bermudez Ornelas Alberto
+[Full Version](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_2/Unit_2/Investigations/GrammarGraphics_Bermudez.md)
+
+### Grammar of Graphics 2
+
+
+
+## U2 Evaluative Practice
+---
+
+Develop the following problem with R and RStudio for knowledge extraction
+that the problem requires.
+The directors of the movie review website are very happy with their previous installment and now they have a new requirement for you.
+The previous consultant had created a chart for them which is illustrated in the image below.
+![img]()
+
+However, the R code used to create the graph has been lost and cannot
+be recovered.
+
+Your task is to create the code that will recreate the same table making it look as close to the original as possible.
