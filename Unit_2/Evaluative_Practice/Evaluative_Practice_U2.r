@@ -1,6 +1,6 @@
 #Open the corresponding path where the file is saved to import the data
 getwd()
-setwd("C:/Users/yurid/OneDrive/Documentos/Escuela/2_Mineria de datos/Unit_2")
+setwd("C:/Users/yurid/Documents/DataMining/DATAMINING/Unit_2/Evaluative_Practice")
 getwd()
 # Data is loaded into a dataframe for manipulation
 
