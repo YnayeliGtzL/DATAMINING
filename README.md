@@ -16,6 +16,7 @@ Table of contents
   - [Scatter plot by regions](#scatter-plot-by-regions)
     - [Years comparison](#years-comparison)
 
+
 <div id='pr1' />
 
 ## Practice 1
