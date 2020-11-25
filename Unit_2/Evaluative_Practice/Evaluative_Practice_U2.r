@@ -42,11 +42,13 @@ StudioF<- filter (GenreF, Studio %in% c ("Buena Vista Studios",
 #que seran genericos para el plot
 u <- ggplot(StudioF, aes(x=Genre, y=Gross...US))
 #Agregamos la geometria de Jitter para los estudios  
-j <- u + geom_jitter(aes(color=Studio, size= Budget...mill.))
+j <- u + geom_jitter(aes(color=Studio, size= Budget...mill.)) +
+  scale_size_continuous(range = c(2, 5),                         
+                        trans = scales::exp_trans(base = 1.2))
 #Visualizacion de nuestro plot
 j
 #Agregamos boxplot para agrupar por genero  y Gross colocando una transparencia media
-g <-j + geom_boxplot(alpha=0.5,  outlier.colour = NA)
+g <-j + geom_boxplot(alpha=0.2,  outlier.colour = NA)
 #Visualizacion de nuestro plot
 g
 #Colocamos el titulo de nuestro plot
@@ -65,3 +67,4 @@ th<-e + theme(axis.title.x = element_text(color = "Purple", size=15),
 ) + labs(size="Budget $ M")
 #Visualizacion de nuestro plot
 th
+
