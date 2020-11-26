@@ -23,6 +23,7 @@ gg1 + facet_wrap(- cut, ncol = 3)
 ![img](https://drive.google.com/uc?export=view&id=18vpl_BL-0v_mzAV4fV8Kd8_FwC9oWCDi)
 
 </div>
+
 ### A specification of mapping to variables
 They can refer to both the axes of the graph (x, y)
 as well as other properties such as colors, symbols, sizes, fonts, line types, etc.
@@ -35,6 +36,7 @@ ggplot (diamons, aes(x=carat, y=price))
 ![img](https://drive.google.com/uc?export=view&id=14BA2ZXLot8l9i5trdxY690UAUKRGv4Cf)
 
 </div>
+
 ### A coordinate system
 - Controls the projection of numeric data to space.
 - By default ggplot () creates a Cartesian coordinate system with the x and y axes,
