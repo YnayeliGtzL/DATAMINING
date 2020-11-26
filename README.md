@@ -514,6 +514,7 @@ library(ggplot2)
 ```r
 ggplot(data=año.1960) + geom_bar(aes(x=Región))
 ```
+![image](https://drive.google.com/uc?export=view&id=12z80zvDUx7GvgB5BDJJ3UfnPN9-Hzqo5)
 
 **Geom Polygon**
 
@@ -536,6 +537,8 @@ ggplot(nz, aes(long, lat, group = group)) +
   coord_quickmap()
 ```
 
+![image](https://drive.google.com/uc?export=view&id=1GyuXdkenTtjBjq_-MKtB3neOW_IBg069)
+
 **Geom Boxplot**
 
 The box plot is used in numerical variables since it will provide us with both themedian such as quartiles and outliers Create boxes in which data can be grouped,color them and show the distribution of the data
@@ -548,6 +551,9 @@ library(ggplot2)
 ```r
 ggplot(data = mtcars) + geom_boxplot(aes(x=factor(am), y=mpg))
 ```
+
+![image](https://drive.google.com/uc?export=view&id=1jg8YI2pRFDOkiow0bBWK2xsMusmgn5tb)
+
 
 **Facet Grid**
 
@@ -567,8 +573,9 @@ ggplot(mtcars, aes(mpg, qsec)) + geom_point(aes(size = hp), alpha = 0.4)
 + facet_grid(factor(cyl)~factor(am))
 ```
 
+![image](https://drive.google.com/uc?export=view&id=1pgRmA_zS24TkRlUrB3VoEcCO2AS0aSFz)
 
-### **Geom Violin**
+ **Geom Violin**
 
 Violin charts allow you to visualize the distribution of a numeric variable for one orvarious groups. It is very close to a boxplot, but allows a deeper understandingof density. Violins are especially suited when the amount of data ishuge and it is impossible to show individual observations. The violin graphics area very convenient way to display the data and probably deserves more attentioncompared to box plots which can sometimes hide characteristics of thedata
 > 1. In order to use this type of plot you need to import the ggplot library
@@ -588,6 +595,8 @@ library(ggplot2)
          color=NULL) +
     theme_elegante()
 ```
+![image](https://drive.google.com/uc?export=view&id=1nOWYvDy565WnJWULd2e8zN1pSYxlHZOc)
+
 
 ## U2 Investigation
 ---
@@ -606,9 +615,13 @@ Develop the following problem with R and RStudio for knowledge extraction
 that the problem requires.
 The directors of the movie review website are very happy with their previous installment and now they have a new requirement for you.
 The previous consultant had created a chart for them which is illustrated in the image below.
-![img]()
+
+
+![image](https://drive.google.com/uc?export=view&id=1UnwDAm6EidXhp7jZ_DUwPmEdSN9Wq6ok)
+
 
 However, the R code used to create the graph has been lost and cannot
 be recovered.
 
 Your task is to create the code that will recreate the same table making it look as close to the original as possible.
+
