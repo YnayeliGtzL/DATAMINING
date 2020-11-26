@@ -799,7 +799,11 @@ th <-e + theme (axis.title.x = element_text (color = "Purple", size = 15),
 
 
 ### Conclusion
+
 It is important to know the grammar of the graphs in order to be able to manipulate them and to be able to make the plotted data become important information for the end user who views it.
+
 The way in which the data was displayed is quite interesting, the use of colors to make it more descriptive for the end user; the use of jitter with the geom box to observe the data in a friendly way.
+
 Regarding the graph, we can carry out the analysis that, most of the movies are action films, because it is one of the safest to invest, we can see that there are different budgets and even so, all are in an average of 40 million gross income . The other option that seems safe to invest is animation and more specifically speaking of "Buena Vista Studios" we can see that they have a good gross income within the box, even with the WB study we can see that they have good results in terms of income.
+
 On the other hand, drama and adventure are one of the genres in which it is risky to make an investment because it has a fairly marked point of acceptance and rejection since it may or may not please, so these genres are a whole wheel of luck Of course, for success or rejection, enter other types of variables within the experience of the end user.
