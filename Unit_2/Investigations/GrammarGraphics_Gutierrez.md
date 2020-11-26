@@ -18,9 +18,11 @@ If what we prefer is to see a graph separated by groups (e.g. for each of the cu
 ```r
 gg1 + facet_wrap(- cut, ncol = 3)
 ```
+<div align="center">
 
-![image](https://drive.google.com/file/d/18vpl_BL-0v_mzAV4fV8Kd8_FwC9oWCDi/view?usp=sharing)
+![img](https://drive.google.com/uc?export=view&id=18vpl_BL-0v_mzAV4fV8Kd8_FwC9oWCDi)
 
+</div>
 ### A specification of mapping to variables
 They can refer to both the axes of the graph (x, y)
 as well as other properties such as colors, symbols, sizes, fonts, line types, etc.
@@ -28,7 +30,11 @@ In ggplot () they are specified with the arguments passed to aes ().
 ```r
 ggplot (diamons, aes(x=carat, y=price))
 ```
-![img]()
+<div align="center">
+
+![img](https://drive.google.com/uc?export=view&id=14BA2ZXLot8l9i5trdxY690UAUKRGv4Cf)
+
+</div>
 ### A coordinate system
 - Controls the projection of numeric data to space.
 - By default ggplot () creates a Cartesian coordinate system with the x and y axes,
@@ -56,7 +62,12 @@ They help us color (or scale) the data according to different variables. They dr
 ```r
 ggplot(diamonds, aes(x=carat, y=price, color =cut))+ geom_point() + geom_smooth()
 ```
-![img]()
+<div align="center">
+
+![img](https://drive.google.com/uc?export=view&id=1j8yBFf3Hp16rAv2DwC_oKNB-FZ-LeH_Q)
+
+</div>
+
 ### Full tags (theme)
 They are sets of graphical specifications that allow you to control the general appearance of all non-data elements (for example, the background color or the width of the axes)
 - ggplot () takes variable names for axes and labels for scales (discrete or continuous)
@@ -69,7 +80,11 @@ axis.title.x=element_text(size=30),
 axis.title.y=element_text(size=30))+ 
 scale_color_discrete(name="Corte del diamante")
 ```
-![img]()
+<div align="center">
+
+![img](https://drive.google.com/uc?export=view&id=1YjobUoAUPEwVROotEdafdrwrsYVcPJDd)
+</div>
+
 ### Annotations (labs)
 - Titles, subtitles, bullets and any other annotation that we want to include will be entered directly by the user.
 ```r
@@ -77,11 +92,16 @@ gg <- ggplot(diamonds, aes(x=carat, y=price,color=cut)) +  geom_point() +labs(ti
 #Visualisation plot 
 gg
 ```
-![img]()
+<div align="center">
+
+![img](https://drive.google.com/uc?export=view&id=1n7HQh4sCKMY1dux9sGxc7FwyKvublXJ3)
+
+</div>
 
 ## Conclusion
 It is interesting to know that with R you have the possibility of making graphs so simple and complex at the same time to perform data analysis and apply data science to extract information and be able to fully exploit the data that is given to us, knowing well the grammar of the graphs to obtain the maximum potential of R.
 R allows us to modify and plot our graphs as we indicate it in the layers that it has inside ggplot2 which helps us to make the work dynamic and have only the information we want in our plot.
+
 ## References
 1. Martin Paladino. (----). Gráficos en R. 2020, de Instituto Mora Sitio web: https://www.institutomora.edu.mx/testU/SitePages/martinpaladino/graficos_con_r_y_ggplot.html
 2. Matias Andina. ggplot2. (2018). 2020, de Bookdown Sitio web: https://bookdown.org/matiasandina/R-intro/exploracion-de-datos.html#ggplot2
