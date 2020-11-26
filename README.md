@@ -16,12 +16,12 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unidad 2](#unidad-2)
-  - [U2 Practice 1](#u2-practice-1)
+  - [Practice 1](#practice-1-1)
     - [Functions](#functions)
-  - [## U2 Investigation](#-u2-investigation)
+  - [Investigation](#investigation-1)
     - [Grammar of Graphics](#grammar-of-graphics)
     - [Grammar of Graphics 2](#grammar-of-graphics-2)
-  - [## U2 Evaluative Practice](#-u2-evaluative-practice)
+  - [Evaluative Practice](#evaluative-practice-1)
     - [Introduction](#introduction)
     - [Code](#code)
     - [Final plot](#final-plot)
@@ -353,7 +353,9 @@ M
 ```
 <div id='in3'/>
 
+
 ## Investigation
+
 ### Pair Coding
 In this small investigation we will see the concept of pair coding because it was not found as such, the concept of pair programming or pair programming is seen, in the breakdown of the investigation the benefits of using this type of programming are revealed and the difficulties of this.
 -- Gutierrez Luna Yuridia Nayeli
@@ -497,7 +499,7 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 
 # Unidad 2
 ___
-## U2 Practice 1
+## Practice 1
 
 ---
 
@@ -603,8 +605,10 @@ library(ggplot2)
 ![image](https://drive.google.com/uc?export=view&id=1nOWYvDy565WnJWULd2e8zN1pSYxlHZOc)
 
 
-## U2 Investigation
+## Investigation
+
 ---
+
 ### Grammar of Graphics
 In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. 
 
@@ -624,7 +628,9 @@ It is interesting to know that two different types of graphs can be made within 
 
 [Full Version](/Unit_2/Investigations/GrammarGraphics_Gutierrez.md)
 
-## U2 Evaluative Practice
+
+## Evaluative Practice
+
 ---
 
 Develop the following problem with R and RStudio for knowledge extraction
