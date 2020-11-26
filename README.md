@@ -22,6 +22,10 @@ Table of contents
     - [Grammar of Graphics](#grammar-of-graphics)
     - [Grammar of Graphics 2](#grammar-of-graphics-2)
   - [## U2 Evaluative Practice](#-u2-evaluative-practice)
+    - [Introduction](#introduction)
+    - [Code](#code)
+    - [Final plot](#final-plot)
+    - [Conclusion](#conclusion)
     
     
 
@@ -613,6 +617,7 @@ In this research we talk about the structure that any graph must have compared g
 ### Grammar of Graphics 2
 In this research-task about the grammar in the graphing of in R to ggplot2 we will see which are the attributes that are taken into account to perform the plotting of the data and to be able to differentiate between data and be able to obtain information from our data in stupid.
 It is interesting to know that two different types of graphs can be made within the same graph because it separates the data to do this different geoms are used.
+
 <div align="right">
 - Gutierrez Luna Yuridia Nayeli
 </div>
@@ -636,3 +641,159 @@ be recovered.
 
 Your task is to create the code that will recreate the same table making it look as close to the original as possible.
 
+### Introduction
+In this evaluative practice, the above is requested, so in order to comply with the request, the data load is carried out in a data frame, the data filtering in 2 cycles, then the plotting is started separately in order to keep an order of changes.
+Let's venture into the explanation of our code.
+### Code
+Open the corresponding path where the file is saved to import the data. get allows us to visualize the path in the console and with the set line we define the path with which we will be working.
+
+```r
+getwd ()
+setwd ("C: / Users / yurid / Documents / DataMining / DATAMINING / Unit_2 / Evaluative_Practice")
+getwd ()
+```
+
+The data is loaded into a data frame for manipulation. We specify the name of the file where we will get our data and add it to a variable.
+
+```r
+dataset <- read.csv ('Project-Data.csv')
+```
+
+Second option to load the data and not have to modify the code. This helps us a lot in case we don't want to modify the original code and since we are working in duos it allows us to choose the file with the data from wherever it is.
+
+```r
+dataset <- read.csv (file.choose ())
+```
+
+The dataframe is observed for observation and analysis. With summary we can see the summary of the result of various model adjustment functions
+
+```r
+summary (dataset)
+```
+
+The necessary libraries for data manipulation are loaded. ggplot2 allows us to make the graphs of our plots as well as adds many functions with which we can work
+
+```r
+library (ggplot2)
+```
+
+For the realization of filters the dply library was used. It is necessary to install this library in order to use it later. This library adds the necessary functions for filtering information in conjunction with ggplot2.
+```r
+# install.packages ("dplyr")
+library (dplyr)
+```
+
+To change the font we need, we install the library
+
+```r
+# install.packages ("extrafont")
+```
+
+The font library is loaded
+```r
+library (extrafont)
+```
+
+After we import all the fonts into our system, this may change depending on your OS. Only done once each file is opened
+```r
+font_import ()
+```
+We execute the command to display the fonts so that "R" can recognize them. It is important because without this line of code the library may not work
+
+```r
+fonts ()
+```
+
+A new dataframe is created which takes the data from the “dataset” filtering the data to only add the requested genres. The% in% function of the dplyr library is used which makes data filtering possible
+
+```r
+GenreF <-filter (dataset, Genre% in% c ("action", "adventure",
+                                     "animation", "comedy", "drama"))
+```
+
+From the previous dataframe, a new one is created to filter the information to only take the requested studies, taking into account only the data that the previous one and this one comprise the two filters.
+
+```r
+StudioF <- filter (GenreF, Studio% in% c ("Buena Vista Studios",
+                                          "Fox", "Paramount Pictures",
+                                          "Sony", "Universal", "WB"))
+```
+
+A variable is created in which we are going to load the plot of the data that it will contain for the X and Y axes that will be generic for the plot. It is said that the data used will be from StudioF and we say that we are going to visualize the axes.
+
+```r
+u <- ggplot (StudioF, aes (x = Genre, y = Gross ... US))
+```
+
+We added the Jitter geometry for studies. Here we say that we want to visualize by color with the Studio factor and size the budget
+
+```r
+j <- u + geom_jitter (aes (color = Studio, size = Budget ... mill.)) +
+```
+
+As the data looked too crowded we used this function to rescale the data to be able to visualize it in a better way
+
+```r
+  scale_size_continuous (range = c (2, 5),
+                        trans = scales :: exp_trans (base = 1.2))
+```
+
+Viewing our plot
+
+```r
+j
+```
+
+We add boxplot to group by gender and Gross by placing a medium transparency and removing redundant data from the graph
+
+```r
+g <-j + geom_boxplot (alpha = 0.2, outlier.colour = NA)
+```
+
+Viewing our plot
+
+```r
+g
+```
+We place the title of our plot
+
+```r
+t <-g + ggtitle ("Domestic Gross% by Genre")
+```
+
+Viewing our plot
+
+```r
+t
+```
+
+We put the name of the X and Y axes
+```r
+e <- t + xlab ("Genre") + ylab ("Gross% US")
+```
+
+Viewing our plot
+```r
+th
+```
+
+We add the theme for the labels. We say that the text elements of the titles of X and Y will be purple and of a size of 15, the text of the title will be of a size of 25 and that it will be centered; "Hjust = 0.5", we say that all the text within the graph will use the font "Comic Sans MS", finally we change the name of the label to the size "Budget"
+
+```r
+th <-e + theme (axis.title.x = element_text (color = "Purple", size = 15),
+              axis.title.y = element_text (color = "Purple", size = 15),
+              plot.title = element_text (size = 25, hjust = 0.5)
+              , text = element_text (family = "Comic Sans MS")
+) + labs (yes
+```
+
+### Final plot
+
+![img](https://drive.google.com/uc?export=view&id=1DXZlZOr_VAFqaYi9-Bz_R2k-V29Qp4wO)
+
+
+### Conclusion
+It is important to know the grammar of the graphs in order to be able to manipulate them and to be able to make the plotted data become important information for the end user who views it.
+The way in which the data was displayed is quite interesting, the use of colors to make it more descriptive for the end user; the use of jitter with the geom box to observe the data in a friendly way.
+Regarding the graph, we can carry out the analysis that, most of the movies are action films, because it is one of the safest to invest, we can see that there are different budgets and even so, all are in an average of 40 million gross income . The other option that seems safe to invest is animation and more specifically speaking of "Buena Vista Studios" we can see that they have a good gross income within the box, even with the WB study we can see that they have good results in terms of income.
+On the other hand, drama and adventure are one of the genres in which it is risky to make an investment because it has a fairly marked point of acceptance and rejection since it may or may not please, so these genres are a whole wheel of luck Of course, for success or rejection, enter other types of variables within the experience of the end user.
