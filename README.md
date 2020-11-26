@@ -16,11 +16,12 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unidad 2](#unidad-2)
-    - [Practice 1](#U2-practice-1)
-    - [Investigation](#U2-investigation)
-      - [Grammar of Graphics](#Grammar-of-Graphics)
-      - [Grammar of Graphics 2](#Grammar-of-Graphics-2)
-    - [Evaluative Practice](#U2-evaluative-practice)
+  - [U2 Practice 1](#u2-practice-1)
+    - [Functions](#functions)
+  - [## U2 Investigation](#-u2-investigation)
+    - [Grammar of Graphics](#grammar-of-graphics)
+    - [Grammar of Graphics 2](#grammar-of-graphics-2)
+  - [## U2 Evaluative Practice](#-u2-evaluative-practice)
     
     
 
@@ -601,12 +602,22 @@ library(ggplot2)
 ## U2 Investigation
 ---
 ### Grammar of Graphics
-In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. -- Bermudez Ornelas Alberto
+In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. 
+
+<div align="right">
+- Bermudez Ornelas Alberto
+</div>
+
 [Full Version](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_2/Unit_2/Investigations/GrammarGraphics_Bermudez.md)
 
 ### Grammar of Graphics 2
+In this research-task about the grammar in the graphing of in R to ggplot2 we will see which are the attributes that are taken into account to perform the plotting of the data and to be able to differentiate between data and be able to obtain information from our data in stupid.
+It is interesting to know that two different types of graphs can be made within the same graph because it separates the data to do this different geoms are used.
+<div align="right">
+- Gutierrez Luna Yuridia Nayeli
+</div>
 
-
+[Full Version](/Unit_2/Investigations/GrammarGraphics_Gutierrez.md)
 
 ## U2 Evaluative Practice
 ---
