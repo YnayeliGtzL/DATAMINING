@@ -780,7 +780,7 @@ e <- t + xlab ("Genre") + ylab ("Gross% US")
 
 Viewing our plot
 ```r
-th
+e
 ```
 
 We add the theme for the labels. We say that the text elements of the titles of X and Y will be purple and of a size of 15, the text of the title will be of a size of 25 and that it will be centered; "Hjust = 0.5", we say that all the text within the graph will use the font "Comic Sans MS", finally we change the name of the label to the size "Budget"
@@ -791,6 +791,11 @@ th <-e + theme (axis.title.x = element_text (color = "Purple", size = 15),
               plot.title = element_text (size = 25, hjust = 0.5)
               , text = element_text (family = "Comic Sans MS")
 ) + labs (yes
+```
+Viewing our plot
+
+```r
+th
 ```
 
 ### Final plot
