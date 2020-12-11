@@ -18,6 +18,7 @@ Table of contents
       - [Years comparison](#years-comparison)
 - [Unit 3](#unit-3)
   - [Practice 1](#practice-1-1)
+  - [Practice 1 -1](#practice-1--1)
   - [Practice 2](#practice-2-1)
   - [Practice 3](#practice-3-1)
   - [Practice 4](#practice-4)
@@ -497,18 +498,139 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 
 # Unit 3
 ## Practice 1
-## Practice 2
-## Practice 3
-## Practice 4
-## Practice 5
-## Practice 6
-## Practice 7
-## Practice 8
-## Practice 9
-## Practice 10
-## Practice 11
-## Practice 12
+**backwardElimination** 
+Analyze the following "backwardElimination" function
+>Code
+The function is named and two parameters (x and sl) are assigned to it.
+```r
+backwardElimination <- function (x, sl) {
+```
+The variable numVar is added and its value will be the length of x. This function is intended to see the entire number of data in the vector. X represents the dataset.
+```r
+  numVars = length (x)
+```
+In the for it says that for each value within the vector of continuous data starting from its first value, the following functions will be performed.
+```r
+  for (i in c (1: numVars)) {
+```
+Starting by initializing the regressor variable, which will contain the values ​​of the linear regression model created together with its respective formula, which says that it will have the entire profit column and its data will be extracted from X.
+```r
+    regressor = lm (formula = Profit ~., data = x)
+```
+In turn, the variable maxVar is created, which will have a vector with the maximum coefficient of the summation of data within regressor, which is within the matrix. It starts from the second value of the length of the values ​​which is numVars and the column of the p-value.
+ ```r
+    maxVar = max (coef (summary (regressor)) [c (2: numVars), "Pr (> | t |)"])
+```
+This value is obtained, an if is performed saying that if the maximum coefficient value is greater than sl (our parameter which represents the p-value we are looking for) then the vector that has the same value as the maxVar variable will be searched and saved that indicator within j.
+```r
+    if (maxVar> sl) {
+      j = which (coef (summary (regressor)) [c (2: numVars), "Pr (> | t |)"] == maxVar)
+```
+Then we eliminate vector j from our dataset which is X.
+```r
+      x = x [, -j]
+    }
+```
 
+Finally, we subtract one unit from the length of our dataset, which is numVars from the for, and we return the sum of all the values ​​inside regressor so that the cycle continues until we are left with pure columns with the desired p-value.
+```r
+    numVars = numVars - 1
+  }
+  return (summary (regressor))
+}
+```
+**Conlcution**
+With this small piece of code we can more efficiently search for the best values for our prediction, It is probably faster just to remove the values that we see but when we talk about thousands of factors within a database it becomes very exhaustive to make one For this reason, this function is extremely important as it will save us hours of work.
+## Practice 1 -1
+**Simple Logistic Regression**
+In this practice we will explain how to display a simple linear regression.
+> Code
+We load the data into our dataset variable
+```r
+getwd()
+setwd("C:/Users/yurid/Documents/RepoDataMining/DataMining/MachineLearning/SimpleLinearRegression")
+getwd()
+
+dataset <- read.csv('Salary_Data.csv')
+```
+We import the caTools library, we assign the seed to create random number rales, to split we assign the values to pass them in a Boolean way, we assign our training variables and test the values ⅔ will go to training and the el will go to test
+```r
+library(caTools)
+set.seed(123)
+split <- sample.split(dataset$Salary, SplitRatio = 2/3)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+```
+We create a variable where we will load the data from our dataset taking into account salary and years of experience for the regression, we print a summary to know the data
+```r
+regressor = lm(formula = Salary ~ YearsExperience,
+               data = dataset)
+summary(regressor)
+```
+We load predict to the variable y_pred to be able to obtain the prediction of the training data with the new test data
+```r
+y_pred = predict(regressor, newdata = test_set)
+```
+We import the ggplot2 library, we plot the points with our training data from the YearsExperience and Saraly columns, we assign the color red, the prediction will be blue, this is given by the training data, and finally we name the plot. axes.
+```r
+library(ggplot2)
+ggplot() +
+  geom_point(aes(x=training_set$YearsExperience, y=training_set$Salary),
+             color = 'red') +
+  geom_line(aes(x = training_set$YearsExperience, y = predict(regressor, newdata = training_set)),
+            color = 'blue') +
+  ggtitle('Salary vs Experience (Training Set)') +
+  xlab('Years of experience') +
+  ylab('Salary')
+```
+We made the same plot with the only change that now the data will be taken from ⅓ that was left as test data.
+```r
+ggplot() +
+  geom_point(aes(x=test_set$YearsExperience, y=test_set$Salary),
+             color = 'red') +
+  geom_line(aes(x = training_set$YearsExperience, y = predict(regressor, newdata = training_set)),
+            color = 'blue') +
+  ggtitle('Salary vs Experience (Test Set)') +
+  xlab('Years of experience') +
+  ylab('Salary')
+```
+**Conlcution**
+This type of practical-homework helps us (in particular) to review everything they tell us in class since sometimes we are not at 100 or we get distracted.
+Prediction is useful for many things and having tools that facilitate this type of situation is much easier.
+We can see that the trend line along with the data is in good direction.
+## Practice 2
+**title**
+**Conlcution**
+## Practice 3
+**title**
+**Conlcution**
+## Practice 4
+**tittle**
+**Conlcution**
+## Practice 5
+**tittle**
+**Conlcution**
+## Practice 6
+**tittle**
+**Conlcution**
+## Practice 7
+**tittle**
+**Conlcution**
+## Practice 8
+**tittle**
+**Conlcution**
+## Practice 9
+**tittle**
+**Conlcution**
+## Practice 10
+**tittle**
+**Conlcution**
+## Practice 11
+**tittle**
+**Conlcution**
+## Practice 12
+**tittle**
+**Conlcution**
 ## Homework
 ### Machine Learning
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
