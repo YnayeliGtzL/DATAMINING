@@ -500,7 +500,9 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 ## Practice 1
 **backwardElimination** 
 Analyze the following "backwardElimination" function
+
 >Code
+
 The function is named and two parameters (x and sl) are assigned to it.
 ```r
 backwardElimination <- function (x, sl) {
@@ -544,7 +546,9 @@ With this small piece of code we can more efficiently search for the best values
 ## Practice 1 -1
 **Simple Logistic Regression**
 In this practice we will explain how to display a simple linear regression.
+
 > Code
+
 We load the data into our dataset variable
 ```r
 getwd()
