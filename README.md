@@ -4,8 +4,10 @@
 **Content**
 
 Table of contents
-- [Unidad 1](#unidad-1)
+
+- [Unit 1](#unit-1)
   - [Practice 1](#practice-1)
+  - [Practice 1](#practice-1-1)
   - [Practice 2](#practice-2)
   - [Practice 3](#practice-3)
   - [Investigation](#investigation)
@@ -15,8 +17,8 @@ Table of contents
     - [Scatter plot by country](#scatter-plot-by-country)
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
-- [Unidad 2](#unidad-2)
-  - [Practice 1](#practice-1-1)
+- [Unit 2](#unit-2)
+  - [Practice 1](#practice-1-2)
     - [Functions](#functions)
   - [Investigation](#investigation-1)
     - [Grammar of Graphics](#grammar-of-graphics)
@@ -26,13 +28,11 @@ Table of contents
     - [Code](#code)
     - [Final plot](#final-plot)
     - [Conclusion](#conclusion)
-    
-    
 
 <div id='pr1' />
 
-
-# Unidad 1
+# Unit 1
+## Practice 1
 ___
 ## Practice 1
 
@@ -497,7 +497,7 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
 
-# Unidad 2
+# Unit 2
 ___
 ## Practice 1
 
