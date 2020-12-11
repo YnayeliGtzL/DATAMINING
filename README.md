@@ -5,19 +5,21 @@
 
 Table of contents
 
-- [Practice 1](#practice-1)
-- [Practice 2](#practice-2)
-- [Practice 3](#practice-3)
-- [Investigation](#investigation)
-  - [Pair Coding](#pair-coding)
-  - [Pair Coding 2](#pair-coding-2)
-- [Evaluative Practice](#evaluative-practice)
-  - [Scatter plot by country](#scatter-plot-by-country)
-  - [Scatter plot by regions](#scatter-plot-by-regions)
-    - [Years comparison](#years-comparison)
+- [Unit 1](#unit-1)
+  - [Practice 1](#practice-1)
+  - [Practice 2](#practice-2)
+  - [Practice 3](#practice-3)
+  - [Investigation](#investigation)
+    - [Pair Coding](#pair-coding)
+    - [Pair Coding 2](#pair-coding-2)
+  - [Evaluative Practice](#evaluative-practice)
+    - [Scatter plot by country](#scatter-plot-by-country)
+    - [Scatter plot by regions](#scatter-plot-by-regions)
+      - [Years comparison](#years-comparison)
 
 <div id='pr1' />
 
+# Unit 1
 ## Practice 1
 
 ---
