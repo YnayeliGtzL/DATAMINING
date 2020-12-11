@@ -17,6 +17,20 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unit 3](#unit-3)
+  - [Practice 1](#practice-1-1)
+  - [Practice 2](#practice-2-1)
+  - [Practice 3](#practice-3-1)
+  - [Practice 4](#practice-4)
+  - [Practice 5](#practice-5)
+  - [Practice 6](#practice-6)
+  - [Practice 7](#practice-7)
+  - [Practice 8](#practice-8)
+  - [Practice 9](#practice-9)
+  - [Practice 10](#practice-10)
+  - [Practice 11](#practice-11)
+  - [Practice 12](#practice-12)
+  - [Homework](#homework)
+    - [Machine Learning](#machine-learning)
 
 <div id='pr1' />
 
@@ -482,3 +496,20 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
 # Unit 3
+## Practice 1
+## Practice 2
+## Practice 3
+## Practice 4
+## Practice 5
+## Practice 6
+## Practice 7
+## Practice 8
+## Practice 9
+## Practice 10
+## Practice 11
+## Practice 12
+
+## Homework
+### Machine Learning
+This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
+[Full Version](Unit_3\Homeworks\T1U3_16212353.md)
