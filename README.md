@@ -17,15 +17,15 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unit 3](#unit-3)
-  - [## Practice 1](#-practice-1)
+  - [Practice 1](#practice-1-1)
     - [BackwardElimination](#backwardelimination)
-  - [## Practice 1 -1](#-practice-1--1)
+  - [Practice 1 -1](#practice-1--1)
     - [Simple Logistic Regression](#simple-logistic-regression)
-  - [## Practice 2](#-practice-2)
+  - [Practice 2](#practice-2-1)
     - [Logistic Regression](#logistic-regression)
-  - [## Practice 3](#-practice-3)
+  - [Practice 3](#practice-3-1)
     - [Multiple Linear Regression](#multiple-linear-regression)
-  - [## Practice 4](#-practice-4)
+  - [Practice 4](#practice-4)
     - [Decision Tree](#decision-tree)
   - [Practice 5](#practice-5)
     - [Random Forest Classification](#random-forest-classification)
@@ -39,6 +39,7 @@ Table of contents
 <div id='pr1' />
 
 # Unit 1
+
 ## Practice 1
 
 ---
@@ -503,7 +504,7 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 ___
 
 ## Practice 1
----
+
 ### BackwardElimination
 
 Analyze the following "backwardElimination" function
@@ -553,7 +554,7 @@ backwardElimination <- function (x, sl) {
 With this small piece of code we can more efficiently search for the best values for our prediction, It is probably faster just to remove the values that we see but when we talk about thousands of factors within a database it becomes very exhaustive to make one For this reason, this function is extremely important as it will save us hours of work.
 
 ## Practice 1 -1
----
+
 ### Simple Logistic Regression
 In this practice we will explain how to display a simple linear regression.
 
@@ -615,7 +616,7 @@ Prediction is useful for many things and having tools that facilitate this type 
 We can see that the trend line along with the data is in good direction.
 
 ## Practice 2
----
+
 ### Logistic Regression
 In this practice will explain the data visualization process for logistic regression
 
@@ -745,7 +746,7 @@ I like to know more about groupings and the types that exist, even more The impo
 
 
 ## Practice 3
----
+
 ### Multiple Linear Regression 
 In this practice will explain the data visualization process for Multiple linear regression
 
@@ -823,7 +824,7 @@ y_pred
  analyzing the data we realized that the points are very close to the line of trend, this means that if there is a relationship between these variables, and more Analyzing the coefficient of determination R2 proves that the analysis is correct.
 
 ## Practice 4
----
+
 ### Decision Tree
 Decision trees are used from day to day despite the fact that many times we may think not. In this practice we will explain by means of code how decisions are made within the trees and what the visualization of it looks like
 
