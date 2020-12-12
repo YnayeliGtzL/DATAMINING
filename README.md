@@ -17,19 +17,22 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unit 3](#unit-3)
-  - [Practice 1](#practice-1-1)
-  - [Practice 1 -1](#practice-1--1)
-  - [Practice 2](#practice-2-1)
-  - [Practice 3](#practice-3-1)
-  - [Practice 4](#practice-4)
+  - [## Practice 1](#-practice-1)
+    - [BackwardElimination](#backwardelimination)
+  - [## Practice 1 -1](#-practice-1--1)
+    - [Simple Logistic Regression](#simple-logistic-regression)
+  - [## Practice 2](#-practice-2)
+    - [Logistic Regression](#logistic-regression)
+  - [## Practice 3](#-practice-3)
+    - [Multiple Linear Regression](#multiple-linear-regression)
+  - [## Practice 4](#-practice-4)
+    - [Decision Tree](#decision-tree)
   - [Practice 5](#practice-5)
+    - [Random Forest Classification](#random-forest-classification)
   - [Practice 6](#practice-6)
+    - [KNN](#knn)
   - [Practice 7](#practice-7)
-  - [Practice 8](#practice-8)
-  - [Practice 9](#practice-9)
-  - [Practice 10](#practice-10)
-  - [Practice 11](#practice-11)
-  - [Practice 12](#practice-12)
+    - [SVM](#svm)
   - [Homework](#homework)
     - [Machine Learning](#machine-learning)
 
@@ -920,37 +923,231 @@ text(classifier, cex=0.6)
 We can realize the multiple ways that there are in this practice to visualize data if grouping is needed and see the flow of decisions made by the tree so you can perform automatic groupings and in case you need a run of desktop (with few sheets) can be performed.
 
 ## Practice 5
-### tittle
-
+### Random Forest Classification
+In this practice, an explanation of the code will be made to visualize the data using the randomforest function
+Code 
+>To get started with this visualization you need the elemStatLearn package. Note (This library is archived for newer versions of r a different way is needed to install)
+```r
+install.packages('ElemStatLearn')
+library(ElemStatLearn)
+```
+>we grab the training set and add it to a variable
+```r
+set = training_set
+```
+>Next, the ranges of the sequences within our filtered data set are marked, which are delimited with the use of the max and min functions and apart the passage of these sequences is marked with a factor of .01 finally they are saved in the variables x1 and x2, which allows us to define the background of our graph.
+```r
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+```
+>Expand allows us to carry out all the combinations of variables in the dataset. and grid creates a framework for all these combinations of the factors that were provided
+```r
+grid_set = expand.grid(X1, X2)
+```
+>to the frame of combinations that we just created we add a column with their respective names
+```r
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+```
+>a prediction is made with our data classifier and our already delimited model background
+```r
+y_grid = predict(classifier, grid_set)
+```
+>With the plot function we generate a plot of the data of our dataframe set minus the vector -3. We add a legend and its labels and name its limits that had already been made previously with the names of x1 and x2
+```r
+plot(set[, -3],
+     main = 'Random Forest Classification (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+```
+>a line is created to an existing graph, which will be our division between green and red, with the numerical matrix of our predictions from the data classification
+```r
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+```
+>With grid_set we pull all the limits and ranges of the background to be able to assign a color to their space
+```r
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+```
+>And with this line we color the points of our data set using the ifelse function
+```r
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+>In the following code, exactly the same is done before, but with the difference that now the test set is used instead of the training set
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, grid_set)
+plot(set[, -3], main = 'Random Forest Classification (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
 **Conclution**
+This type of procedure is very effective for a large enough data set since it manages to classify more precisely, apart from being much more efficient to handle this amount of data compared to the knn method, so much so that even performing the code without counting time, a difference was noted in the data display time. And to finish this algorithm model can maintain its precision even if a large proportion of data is distant.
 ## Practice 6
-### tittle
+### KNN
+In this practice, an explanation of the code will be made to visualize the data using the Knn function.
 
+Code
+
+>To get started with this visualization you need the elemStatLearn package. Note (This library is archived for newer versions of r a different way is needed to install)
+```r
+install.packages('ElemStatLearn')
+library(ElemStatLearn)
+```
+>we grab the training set and add it to a variable
+```r
+set = training_set
+```
+>Next, the ranges of the sequences within our filtered data set are marked, which are delimited with the use of the max and min functions and apart the passage of these sequences is marked with a factor of .01 finally they are saved in the variables x1 and x2, which allows us to define the background of our graph.
+```r
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+```
+>Expand allows us to carry out all the combinations of variables in the dataset. and grid creates a framework for all these combinations of the factors that were provided
+```r
+grid_set = expand.grid(X1, X2)
+```
+>to the frame of combinations that we just created we add a column with their respective names
+```r
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+```
+>What this function does is that for each row of our test dataframe, the kn vectors of the training set are found and classified by majority vote. cl dictates the factor of true classifications (which are our training set of a specific vector) and with k we say the number of neighbors that are accepted
+```r
+y_grid = knn(train = training_set[, -3],
+             test = grid_set,
+             cl = training_set[, 3],
+             k = 5)
+
+```
+>With the plot function we generate a plot of the data of our dataframe set minus the vector -3. We add a legend and its labels and name its limits that had already been made previously with the names of x1 and x2
+```r
+plot(set[, -3],
+     main = 'K-NN Classifier (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+```
+>a line is created to an existing graph, which will be our division between green and red
+```r
+verde y rojo 
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+```
+>With grid_set we pull all the limits and ranges of the background to be able to assign a color to their space
+```r
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+```
+>And with this line we color the points of our data set using the ifelse function
+```r
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+>In the following code, exactly the same is done before, but with the difference that now the test set is used instead of the training set
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = knn(train = training_set[, -3],
+             test = grid_set,
+             cl = training_set[, 3],
+             k = 5)
+plot(set[, -3],
+     main = 'K-NN Classifier (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+
+```
 **Conclution**
+It is very interesting to see the use that is given to the different functions to perform this complex data visualization in my opinion. As you can see, our training and test sets are quite similar. where the resemblance can be observed most is in the delimitation of the grid, that is, the background and the created contour. It can also be observed that the points do not have the same concentration of data but they do resemble their position within the test, which gives us to understand that our model is carried out correctly.
 ## Practice 7
-### tittle
+### SVM
+In this practice an explanation of the code will be made to visualize the data using the SVM function
+
+Code
+
+>To get started with this visualization you need the elemStatLearn package. Note (This library is archived for newer versions of r a different way is needed to install)
+```r
+install.packages('ElemStatLearn')
+library(ElemStatLearn)
+```
+>we grab the training set and add it to a variable
+```r
+set = training_set
+```
+>Next, the ranges of the sequences within our filtered data set are marked, which are delimited with the use of the max and min functions and apart the passage of these sequences is marked with a factor of .01 finally they are saved in the variables x1 and x2, which allows us to define the background of our graph.
+```r
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+```
+>Expand allows us to carry out all the combinations of variables in the dataset. and grid creates a framework for all these combinations of the factors that were provided
+```r
+grid_set = expand.grid(X1, X2)
+```
+>to the frame of combinations that we just created we add a column with their respective names
+```r
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+```
+>a prediction is made with our data classifier and our already delimited model background
+```r
+y_grid = predict(classifier, newdata = grid_set)
+```
+>With the plot function we generate a plot of the data of our dataframe set minus the vector -3. We add a legend and its labels and name its limits that had already been made previously with the names of x1 and x2
+```r
+plot(set[, -3],
+     main = 'SVM (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+```
+>a line is created to an existing graph, which will be our division between green and red, with the numerical matrix of our predictions from the data classification
+```r
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+```
+>With grid_set we pull all the limits and ranges of the background to be able to assign a color to their space
+```r
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+```
+>And with this line we color the points of our data set using the ifelse function
+```r
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+>What differentiates this code from the others is that the SVM algorithm is used in classifying the data, as you can see below. It is used mainly to estimate a data density or for data regression and classification.
+```r
+classifier = svm(formula = Purchased ~ .,
+                 data = training_set,
+                 type = 'C-classification',
+                 kernel = 'linear')
+
+```
+>In the following code, exactly the same is done before, but with the difference that now the test set is used instead of the training set
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3], main = 'SVM (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+
+```
 
 **Conclution**
-## Practice 8
-### tittle
+In conclusion, this type of method is very useful with two binary classes (1 and 2) because it maximizes the possible results. It is also more accurate with the distance between the perimeters of each data class which can lead to a better interpretation of the data.
 
-**Conclution**
-## Practice 9
-### tittle
-
-**Conclution**
-## Practice 10
-### tittle
-
-**Conclution**
-## Practice 11
-### tittle
-
-**Conclution**
-## Practice 12
-### tittle
-
-**Conclution**
 ## Homework
 ### Machine Learning
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
