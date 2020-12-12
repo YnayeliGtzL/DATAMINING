@@ -497,59 +497,66 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
 # Unit 3
+___
+
 ## Practice 1
-**backwardElimination** 
+---
+### BackwardElimination
+
 Analyze the following "backwardElimination" function
 
->Code
+Code
 
-The function is named and two parameters (x and sl) are assigned to it.
+>The function is named and two parameters (x and sl) are assigned to it.
 ```r
 backwardElimination <- function (x, sl) {
 ```
-The variable numVar is added and its value will be the length of x. This function is intended to see the entire number of data in the vector. X represents the dataset.
+>The variable numVar is added and its value will be the length of x. This function is intended to see the entire number of data in the vector. X represents the dataset.
 ```r
   numVars = length (x)
 ```
-In the for it says that for each value within the vector of continuous data starting from its first value, the following functions will be performed.
+>In the for it says that for each value within the vector of continuous data starting from its first value, the following functions will be performed.
 ```r
   for (i in c (1: numVars)) {
 ```
-Starting by initializing the regressor variable, which will contain the values ​​of the linear regression model created together with its respective formula, which says that it will have the entire profit column and its data will be extracted from X.
+>Starting by initializing the regressor variable, which will contain the values ​​of the linear regression model created together with its respective formula, which says that it will have the entire profit column and its data will be extracted from X.
 ```r
     regressor = lm (formula = Profit ~., data = x)
 ```
-In turn, the variable maxVar is created, which will have a vector with the maximum coefficient of the summation of data within regressor, which is within the matrix. It starts from the second value of the length of the values ​​which is numVars and the column of the p-value.
+>In turn, the variable maxVar is created, which will have a vector with the maximum coefficient of the summation of data within regressor, which is within the matrix. It starts from the second value of the length of the values ​​which is numVars and the column of the p-value.
  ```r
     maxVar = max (coef (summary (regressor)) [c (2: numVars), "Pr (> | t |)"])
 ```
-This value is obtained, an if is performed saying that if the maximum coefficient value is greater than sl (our parameter which represents the p-value we are looking for) then the vector that has the same value as the maxVar variable will be searched and saved that indicator within j.
+>This value is obtained, an if is performed saying that if the maximum coefficient value is greater than sl (our parameter which represents the p-value we are looking for) then the vector that has the same value as the maxVar variable will be searched and saved that indicator within j.
 ```r
     if (maxVar> sl) {
       j = which (coef (summary (regressor)) [c (2: numVars), "Pr (> | t |)"] == maxVar)
 ```
-Then we eliminate vector j from our dataset which is X.
+>Then we eliminate vector j from our dataset which is X.
 ```r
       x = x [, -j]
     }
 ```
 
-Finally, we subtract one unit from the length of our dataset, which is numVars from the for, and we return the sum of all the values ​​inside regressor so that the cycle continues until we are left with pure columns with the desired p-value.
+>Finally, we subtract one unit from the length of our dataset, which is numVars from the for, and we return the sum of all the values ​​inside regressor so that the cycle continues until we are left with pure columns with the desired p-value.
 ```r
     numVars = numVars - 1
   }
   return (summary (regressor))
 }
 ```
-**Conlcution**
+**Conclution**
+
 With this small piece of code we can more efficiently search for the best values for our prediction, It is probably faster just to remove the values that we see but when we talk about thousands of factors within a database it becomes very exhaustive to make one For this reason, this function is extremely important as it will save us hours of work.
+
 ## Practice 1 -1
-**Simple Logistic Regression**
+---
+### Simple Logistic Regression
 In this practice we will explain how to display a simple linear regression.
 
-> Code
+Code
 
-We load the data into our dataset variable
+>We load the data into our dataset variable
 ```r
 getwd()
 setwd("C:/Users/yurid/Documents/RepoDataMining/DataMining/MachineLearning/SimpleLinearRegression")
@@ -557,7 +564,7 @@ getwd()
 
 dataset <- read.csv('Salary_Data.csv')
 ```
-We import the caTools library, we assign the seed to create random number rales, to split we assign the values to pass them in a Boolean way, we assign our training variables and test the values ⅔ will go to training and the el will go to test
+>We import the caTools library, we assign the seed to create random number rales, to split we assign the values to pass them in a Boolean way, we assign our training variables and test the values ⅔ will go to training and the el will go to test
 ```r
 library(caTools)
 set.seed(123)
@@ -565,17 +572,17 @@ split <- sample.split(dataset$Salary, SplitRatio = 2/3)
 training_set <- subset(dataset, split == TRUE)
 test_set <- subset(dataset, split == FALSE)
 ```
-We create a variable where we will load the data from our dataset taking into account salary and years of experience for the regression, we print a summary to know the data
+>We create a variable where we will load the data from our dataset taking into account salary and years of experience for the regression, we print a summary to know the data
 ```r
 regressor = lm(formula = Salary ~ YearsExperience,
                data = dataset)
 summary(regressor)
 ```
-We load predict to the variable y_pred to be able to obtain the prediction of the training data with the new test data
+>We load predict to the variable y_pred to be able to obtain the prediction of the training data with the new test data
 ```r
 y_pred = predict(regressor, newdata = test_set)
 ```
-We import the ggplot2 library, we plot the points with our training data from the YearsExperience and Saraly columns, we assign the color red, the prediction will be blue, this is given by the training data, and finally we name the plot. axes.
+>We import the ggplot2 library, we plot the points with our training data from the YearsExperience and Saraly columns, we assign the color red, the prediction will be blue, this is given by the training data, and finally we name the plot. axes.
 ```r
 library(ggplot2)
 ggplot() +
@@ -587,7 +594,7 @@ ggplot() +
   xlab('Years of experience') +
   ylab('Salary')
 ```
-We made the same plot with the only change that now the data will be taken from ⅓ that was left as test data.
+>We made the same plot with the only change that now the data will be taken from ⅓ that was left as test data.
 ```r
 ggplot() +
   geom_point(aes(x=test_set$YearsExperience, y=test_set$Salary),
@@ -598,43 +605,352 @@ ggplot() +
   xlab('Years of experience') +
   ylab('Salary')
 ```
-**Conlcution**
+**Conclution**
+
 This type of practical-homework helps us (in particular) to review everything they tell us in class since sometimes we are not at 100 or we get distracted.
 Prediction is useful for many things and having tools that facilitate this type of situation is much easier.
 We can see that the trend line along with the data is in good direction.
+
 ## Practice 2
-**title**
-**Conlcution**
+---
+### Logistic Regression
+In this practice will explain the data visualization process for logistic regression
+
+Code
+
+>The data is loaded into a variable, then it is chosen from those values ​​thatwe have only columns 3 to 5
+```r
+getwd()
+setwd("C:/Users/yurid/Documents/RepoDataMining/DataMining/MachineLearning/LogisticRegression")
+getwd()
+
+dataset <- read.csv('Social_Network_Ads.csv')
+dataset <- dataset[, 3:5]
+```
+ >The library that we will use caTools is imported, this library helps us to usevarious basic functions without rounding errors.
+
+ >a. We tell the seed what it will use\
+ b. We do a split to change our values, these will be  Boolean format, 75 is assigned to training and 25 to test data\
+  c. From the variable that was created previously, the filter is made for only Include the necessary data at each point
+```r
+library(caTools)
+set.seed(123)
+split <- sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+```
+
+>For our training and test data we will only use thecolumns 1 to 2 and we assign a scale to make it easy to interpret later
+```r
+training_set[, 1:2] <- scale(training_set[, 1:2])
+test_set[, 1:2] <- scale(test_set[, 1:2])
+```
+
+>We create a variable where we will adjust the regression in formula we give it the value of our column Purchased, family binomial and we put the data oftraining
+```r
+classifier = glm(formula = Purchased ~ .,
+                 family = binomial,
+                 data = training_set)
+```
+
+>We create a variable and it is assigned the prediction of our variablead justed above that we print, it is validated if our variable is greater than .5, 1 and 0,we print the matrix
+```r
+prob_pred = predict(classifier, type = 'response', newdata = test_set[-3])
+prob_pred
+y_pred = ifelse(prob_pred > 0.5, 1, 0)
+y_pred
+```
+
+>We create a variable in which we are going to place the difference between the dataset of thetest data and prediction data, printed gives us an effectiveness of 83%
+```r
+cm = table(test_set[, 3], y_pred)
+cm
+```
+
+>We load the ggplot2 library to plot our dataframes from both training as a test
+
+>a. The first plot is done with the Estimated Salary and Purchased data\
+b. The second plot is done with Age and Purchased
+```r
+library(ggplot2)
+ggplot(training_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+ 
+ggplot(training_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+```
+
+>A plot is created with the values ​​of the test dataset taking the data from EstimatedSalary and Purchased
+
+>a. A plot is created with the dataset values ​​taking the Age and Purchased
+```r
+ggplot(test_set, aes(x=EstimatedSalary, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+ 
+ggplot(test_set, aes(x=Age, y=Purchased)) + geom_point() + 
+  stat_smooth(method="glm", method.args=list(family="binomial"), se=FALSE)
+```
+
+>We import the ElemStatLearn library this library contains functions that help for learning data mining
+```r
+library(ElemStatLearn)
+```
+
+>We create a variable where we will load the test data, we create two variables in which the first column will be used and the second column second column as min and max value of the same columns by 0.01
+
+>a. We create a new dataset and assign it the combined values ​​of our previous variables\
+b. We place the header name that our dataframe will havec. We create a variable where we will save the prediction of our dataset classifier with the new grid_set dataset\
+d. In a new variable we compare with if the values ​​of our variable of prediction that are greater than 0.5,1,0\
+e. We plot our datasets that we created earlier,we give a name to the plot, name the axes and we assign what values ​​will gofor each axis\
+F. The contour are creates a line that divides our two datasets, this taking into account our matrix where the verification ofgreater than 0.5,1 and 0 taking the length of our datasetg. With points we are going to differentiate our values, the first is for the dataof the combination of the two datasets in column 1 and 2, and the second isfor the set data which is originally our training datataking into account column 3
+```r
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+For the test data it is the same we only change our dataset that loads us the data and we generate everything the same
+```r
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+prob_set = predict(classifier, type = 'response', newdata = grid_set)
+y_grid = ifelse(prob_set > 0.5, 1, 0)
+plot(set[, -3],
+     main = 'Logistic Regression (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+**Conclution**
+I like to know more about groupings and the types that exist, even more The important thing is that with this new professor he has been more affable than those who previously  taught the fundamentals of it.This subject and its functions become interesting instead of tedious
+
+
 ## Practice 3
-**title**
-**Conlcution**
+---
+### Multiple Linear Regression 
+In this practice will explain the data visualization process for Multiple linear regression
+
+Code
+
+>We make the location of our workspace and load the data in our dataset
+```r
+getwd()
+setwd("C:/Users/yurid/Documents/RepoDataMining/DataMining/MachineLearning/MultipleLinearRegression")
+getwd()
+ 
+# Importing the dataset
+dataset <- read.csv('50_Startups.csv')
+```
+>We make the transformation of the data from string to numeric and show our dataset
+```r
+dataset$State = factor(dataset$State,
+                       levels = c('New York', 'California', 'Florida'),
+                       labels = c(1,2,3))
+dataset
+```
+
+>We import the caTools library and assign the seed, make the transformation of the data to boolean and we separate 80% for training and 20% for testing
+```r
+library(caTools)
+set.seed(123)
+split <- sample.split(dataset$Profit, SplitRatio = 0.8)
+training_set <- subset(dataset, split == TRUE)
+test_set <- subset(dataset, split == FALSE)
+```
+
+>The MultiLiner Regression method is used for our test data and get the summary to see the content of our variable to which we assign the method values
+```r
+regressor = lm(formula = Profit ~ .,
+               data = training_set )
+ 
+summary(regressor)
+```
+>We make the prediction of the test dataset with the regressor method and we print
+```r
+y_pred = predict(regressor, newdata = test_set)
+y_pred
+```
+
+>We perform the MultiLinear Regression method by backward eliminatio model.In the first shows all the columns of our dataset taking incounts the original dataset, in the second the State column is removed and the summary to know the value of the vector
+```r
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend + State,
+               data = dataset )
+summary(regressor)
+ 
+regressor = lm(formula = Profit ~ R.D.Spend + Administration + Marketing.Spend,
+               data = dataset )
+summary(regressor)
+```
+
+>Because we are using an elimination model certain columns are eliminated to do the regression and the summary of these eliminations is printed anyway
+```r
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,
+               data = dataset )
+summary(regressor)
+ 
+regressor = lm(formula = Profit ~ R.D.Spend + Marketing.Spend,
+               data = dataset )
+summary(regressor)
+```
+
+>We make the prediction of the regressor variable made with the elimination model and we print
+```r
+y_pred = predict(regressor, newdata = test_set)
+y_pred
+```
+
+**Conclution**
+
+ analyzing the data we realized that the points are very close to the line of trend, this means that if there is a relationship between these variables, and more Analyzing the coefficient of determination R2 proves that the analysis is correct.
+
 ## Practice 4
-**tittle**
-**Conlcution**
+---
+### Decision Tree
+Decision trees are used from day to day despite the fact that many times we may think not. In this practice we will explain by means of code how decisions are made within the trees and what the visualization of it looks like
+
+Code
+
+>We import data and those assigned to the dataset and filter the columns that we will use in this case they are 3 to 
+```r
+getwd()
+setwd("/home/chris/Documents/itt/Enero_Junio_2020/Mineria_de_datos/DataMining/MachineLearning/DesicionThree")
+getwd()
+# Importing the dataset
+dataset = read.csv('Social_Network_Ads.csv')
+dataset = dataset[3:5]
+```
+
+>We carry out the transformation of data to factor of the column assigning values binaries to make it easier to handle data
+```r
+dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
+```
+
+>We import the caTools library, assign the seed, create our split where We will take the data from Purchased, assigning 75% of the data to training and 25% to test
+```r
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+```
+
+>We scale the values ​​that are not the assigned range in the dataset
+```r
+training_set[-3] = scale(training_set[-3])
+test_set[-3] = scale(test_set[-3])
+```
+
+>we import the rpart library which will help us to see the behavior of the line clustering by the tree model, we create our variable for the model and we tell it what we want to predict within it and the data of where it is going to take it
+```r
+library(rpart)
+classifier = rpart(formula = Purchased ~ .,
+                   data = training_set)
+```
+
+>Once created the variable y_pred in which we are going to make the prediction with the data of the model and the new data that will be that of the columns not included and by the type of class
+```r
+y_pred = predict(classifier, newdata = test_set[-3], type = 'class')
+y_pred
+```
+
+>We assign table to our confusion matrix variable which will have the values of column 3 and the prediction variable and we print the variable cm
+```r
+cm = table(test_set[, 3], y_pred)
+cm
+```
+
+>We import ElemStatLear to display the grouping by model trees, we assign the training data to set, then we assign the values ​​for our groups marking the min and max, we assign the columns of which we want to make the decision we add the prediction for later plot this data, we give the plot the columns of the set we want that it takes, we place a name for the plot and a name for the axes of this, with contour we make the division of decision lines, with the first point we say that color the divisions you have of the space and the division line created by contour and at the end the last point what it does is that it colors the points according to the set to assign them the color it should have according to your prediction
+```r
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set, type = 'class')
+plot(set[, -3],
+     main = 'Decision Tree Classification (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+>We import ElemStatLear to display the grouping by model trees, we assign set the test data, then assign the values ​​forour groups marking the min and max, we assign the columns of which we want to make the decision we add the prediction and then make the plot of these data, we give the plot the columns of the set that we want it to take,we put a name for the plot and a name for the axes of this, with contourwe make the division of decision lines, with the first point we say to color the divisions it has of the space and the division line created by contour and by final the last point what it does is that it colors according to the set the points to assign them the color it should have according to your prediction
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set, type = 'class')
+plot(set[, -3], main = 'Decision Tree Classification (Test set)',
+     xlab = 'Age' , ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+>These two lines display the decisions made by the tree to perform the grouping taking into account our classifier variable which contains the model and training data.
+```r
+plot(classifier)
+text(classifier, cex=0.6)
+```
+**Conclution**
+
+We can realize the multiple ways that there are in this practice to visualize data if grouping is needed and see the flow of decisions made by the tree so you can perform automatic groupings and in case you need a run of desktop (with few sheets) can be performed.
+
 ## Practice 5
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 6
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 7
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 8
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 9
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 10
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 11
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Practice 12
-**tittle**
-**Conlcution**
+### tittle
+
+**Conclution**
 ## Homework
 ### Machine Learning
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
