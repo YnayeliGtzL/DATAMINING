@@ -35,6 +35,11 @@ Table of contents
     - [SVM](#svm)
   - [Homework](#homework)
     - [Machine Learning](#machine-learning)
+  - [Evaluative Practice](#evaluative-practice-1)
+    - [Code](#Code)
+    - [Data visualization](#Data-visualization)
+    - [Interpretation of the results](#Interpretation-of-the-results)
+    - [Conclution](#Conclution)
 
 <div id='pr1' />
 
@@ -1154,7 +1159,7 @@ In conclusion, this type of method is very useful with two binary classes (1 and
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
 [Full Version](Unit_3\Homeworks\T1U3_16212353.md)
 
-## Evaluative Practice
+## Evaluative Practice 
 ---
 
 ### Introduccion
@@ -1246,7 +1251,7 @@ points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 
 ![image](https://drive.google.com/uc?export=view&id=1OLf8oH_eRPntY81LJ7JJypSRnnkFZBGQ)
 
-### Interpretation of results
+### Interpretation of the results
 We have an effectiveness of 86% of correctness of the classification of the data which tells us that the other percentage is the red or green dots that are not found assigned correctly in their group.
 
 Another point that we can denote is that as an entrepreneur the volume of data that we are looking for to sell a product is the green area, where we can make a market advertisement looking for that population
