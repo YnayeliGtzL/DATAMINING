@@ -1153,3 +1153,105 @@ In conclusion, this type of method is very useful with two binary classes (1 and
 ### Machine Learning
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
 [Full Version](Unit_3\Homeworks\T1U3_16212353.md)
+
+## Evaluative Practice
+---
+
+### Introduccion
+In this evaluative practice we will implement the grouping by the model of Naive Bayes, this documentation is made in order to have both a physical memory and demonstrate the knowledge acquired through our professor.
+
+### Code
+As we have seen in previous practices, the data is loaded and in this case only column 3 to 5 will be used, the change of values ​​is made from the purchased column tovalues ​​of 0 and 1 
+
+```r
+getwd()
+setwd("C:/Users/yurid/OneDrive/Documentos/Escuela/2_Mineria de datos/Unit_3")
+getwd()
+ 
+dataset = read.csv('Social_Network_Ads.csv')
+dataset = dataset[3:5]
+ 
+dataset$Purchased = factor(dataset$Purchased, levels = c(0, 1))
+```
+
+The caTools library is imported, the seed value is added and the transformation of the data in the Purchased column assigning 75% of the data
+```r
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Purchased, SplitRatio = 0.75)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
+```
+
+It is assigned to the training variable of the columns that are outside the range of the dataset
+```r
+training_set[-3] = scale(training_set[-3])
+test_set[-3] = scale(test_set[-3])
+```
+
+Predict the Purchased function based on all columns before this is dataset training with the type, the way in which the data will be grouped and the linear kernel, we assign the prediction of our data through the classifier variable and the new data that will be that of test_set that does not include columns greater than 3,later we create our variable where we will save the confusion matrix with the table function of column 3 and the prediction variable
+```r
+library(e1071)
+classifier = naiveBayes(formula = Purchased ~ .,
+                 data = training_set,
+                 type = 'C-classification',
+                 kernel = 'linear')
+ 
+y_pred = predict(classifier, newdata = test_set[-3])
+y_pred
+ 
+cm = table(test_set[, 3], y_pred)
+cm
+```
+
+We import ElemStatLear for the visualization of the grouping by the naive bayes model, we assign set the training data, then assign the values ​​for our groups marking the min and max, we assign the columns of which we want to do the grouping we add the prediction and then make the plot of these data, we give the plot the columns of the set that we want it to take, we place a name for the plot and name for the axes of this, with contour we make the division of parabolic type, with the first point we say to color the divisions that it has of the space and the division line created by contour and at the end the last point what it does is that colors according to the set the points to assign them the color they should have according to their prediction
+```r
+library(ElemStatLearn)
+set = training_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3],
+     main = 'Naive Bayes (Training set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+We import ElemStatLear for the visualization of the grouping by the naive bayes model, we assign set the test data, then assign the values ​​for our groups marking the min and max, we assign the columns of which we want to make the grouping we add the prediction to later plot this data, we give it to plot the columns of the set that we want it to take, we put a name for the plot and name for the axes of this, with contour we make the division of parabolic type, with the First point we say to color the divisions you have of the space and the line of division created by contour and at the end the last point what it does is that it colors according to the setthe points to assign them the color they should have according to their prediction.
+```r
+library(ElemStatLearn)
+set = test_set
+X1 = seq(min(set[, 1]) - 1, max(set[, 1]) + 1, by = 0.01)
+X2 = seq(min(set[, 2]) - 1, max(set[, 2]) + 1, by = 0.01)
+grid_set = expand.grid(X1, X2)
+colnames(grid_set) = c('Age', 'EstimatedSalary')
+y_grid = predict(classifier, newdata = grid_set)
+plot(set[, -3], main = 'Naive Bayes (Test set)',
+     xlab = 'Age', ylab = 'Estimated Salary',
+     xlim = range(X1), ylim = range(X2))
+contour(X1, X2, matrix(as.numeric(y_grid), length(X1), length(X2)), add = TRUE)
+points(grid_set, pch = '.', col = ifelse(y_grid == 1, 'springgreen3', 'tomato'))
+points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
+```
+
+### Data visualization
+
+![image](https://drive.google.com/uc?export=view&id=18hrdXU5vqbmsyUfXieS7LJ9A59z3copO)
+
+
+![image](https://drive.google.com/uc?export=view&id=1OLf8oH_eRPntY81LJ7JJypSRnnkFZBGQ)
+
+### Interpretation of results
+We have an effectiveness of 86% of correctness of the classification of the data which tells us that the other percentage is the red or green dots that are not found assigned correctly in their group.
+
+Another point that we can denote is that as an entrepreneur the volume of data that we are looking for to sell a product is the green area, where we can make a market advertisement looking for that population
+
+### Conclution
+It was honestly very interesting to realize during the course of the making of documentation that was exactly identical to previous problems with which have been working most of these only changes the model or the classification of thedata but in essence most are grouped in a similar way which makes it easy to learn and understand since you don't have to memorize so much code, only the elementary. It is important to emphasize that each one has a different probability of error, depending onof the percentage and the amount of data that are assigned for the training of the models.
+
+We can say that the Naive Bayes function is an elegant way to implement this algorithm, apart from that it helps us a lot to visualize the data in a consistent way.
