@@ -35,6 +35,7 @@ Table of contents
     - [SVM](#svm)
   - [Homework](#homework)
     - [Machine Learning](#machine-learning)
+    - [Machine Learning](#machine-learning-1)
   - [Evaluative Practice](#evaluative-practice-1)
     - [Code](#Code)
     - [Data visualization](#Data-visualization)
@@ -1152,12 +1153,26 @@ points(set, pch = 21, bg = ifelse(set[, 3] == 1, 'green4', 'red3'))
 ```
 
 **Conclution**
+
 In conclusion, this type of method is very useful with two binary classes (1 and 2) because it maximizes the possible results. It is also more accurate with the distance between the perimeters of each data class which can lead to a better interpretation of the data.
+
 
 ## Homework
 ### Machine Learning
 This homework is three questions about the main topic and the analysis of a visual representation of simple lienar regression
+<div align="right">
+- Gutierrez Luna Yuridia Nayeli
+</div>
+
 [Full Version](Unit_3\Homeworks\T1U3_16212353.md)
+
+### Machine Learning
+In this Homework, some basic questions about linear regression and machine learning were answered and a comparison of the graphs was made.
+<div align="right">
+- Bermudez Ornelas Alberto
+</div>
+
+[Full Version](Unit_3\Homeworks\T1U3_16211976.md)
 
 ## Evaluative Practice 
 ---
