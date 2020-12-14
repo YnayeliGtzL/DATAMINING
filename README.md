@@ -37,10 +37,11 @@ Table of contents
     - [Machine Learning](#machine-learning)
     - [Machine Learning](#machine-learning-1)
   - [Evaluative Practice](#evaluative-practice-1)
-    - [Code](#Code)
-    - [Data visualization](#Data-visualization)
-    - [Interpretation of the results](#Interpretation-of-the-results)
-    - [Conclution](#Conclution)
+    - [Introduccion](#introduccion)
+    - [Code](#code)
+    - [Data visualization](#data-visualization)
+    - [Interpretation of the results](#interpretation-of-the-results)
+    - [Conclution](#conclution)
 
 <div id='pr1' />
 
@@ -1175,7 +1176,7 @@ In this Homework, some basic questions about linear regression and machine learn
 [Full Version](Unit_3\Homeworks\T1U3_16211976.md)
 
 ## Evaluative Practice 
----
+
 
 ### Introduccion
 In this evaluative practice we will implement the grouping by the model of Naive Bayes, this documentation is made in order to have both a physical memory and demonstrate the knowledge acquired through our professor.
