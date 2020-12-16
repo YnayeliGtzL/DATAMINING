@@ -17,6 +17,13 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 
+- [Unit 3](#unit-3)
+  - [Evaluative Practice](#evaluative-practice-1)
+    - [Introduccion](#introduccion)
+    - [Code](#code)
+    - [Data visualization](#data-visualization)
+    - [Conclusion](#conclusion)
+
 <div id='pr1' />
 
 # Unit 1
@@ -468,6 +475,7 @@ Due to the enormous number of countries from which data are extracted when makin
 
 1960
 Some important data that we can take from the graph is that the countries of the African region have a very high fertility rate but have a fairly low life expectancy, the vast majority hovering between 35 and 50. On the other hand, we have the region of Europe where they have a reduced fertility rate but a higher life expectancy circulating between 65 to 75. What we can say is that the higher the socioeconomic level in the region, the higher the life expectancy. will be
+
 ![img](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_1/Evaluative_Practice/Regionplot1960.png?raw=true)
 
 The plot shows us this scatter plot in which we can visualize the data grouped by colors of the data regions.
