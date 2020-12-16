@@ -1,11 +1,10 @@
 # K-Means 
-# Set our workspace
 getwd()
-setwd("")
+setwd("C:/Users/yurid/Documents/DataMining/DATAMINING/Unit_4")
 getwd()
 
-dataset = read.csv('Mall_Customers.csv')
-dataset = dataset[4:5]
+dataset = read.csv('iris.csv')
+dataset = dataset[1:4]
 
 
 set.seed(6)
@@ -19,7 +18,7 @@ plot(1:10,
      ylab = 'WCSS')
 
 set.seed(29)
-kmeans = kmeans(x = dataset, centers = 5)
+kmeans = kmeans(x = dataset, centers = 3)
 y_kmeans = kmeans$cluster
 
 library(cluster)
@@ -31,6 +30,6 @@ clusplot(dataset,
          labels = 2,
          plotchar = FALSE,
          span = TRUE,
-         main = paste('Clusters of customers'),
-         xlab = 'Annual Income',
-         ylab = 'Spending Score')
+         main = paste('Clasification of iris'),
+         xlab = '',
+         ylab = '')
