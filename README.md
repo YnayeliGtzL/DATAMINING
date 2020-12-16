@@ -480,3 +480,87 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
+
+# Unit 3
+___
+
+## Evaluative Practice
+--- 
+
+### Introduccion
+In this evaluative practice we will present a data visualization using kmeans algorithm, which will make us the plot through clusters with similar features so we can compare the data
+
+### Code
+
+the data is loaded, As we have already explained before so as not to have errors within our dual programming we add the method by choose.files ()
+```r
+getwd()
+setwd("C:/Users/yurid/Documents/DataMining/DATAMINING/Unit_4")
+getwd()
+ 
+dataset = read.csv(choose.files())
+```
+
+Once we have taken the data from our csv, we insert it into the variable dataset and we tell it that we are only going to use vectors from 1 to 4, since the cluster does not work correctly with alphabetical data
+```r
+dataset = read.csv('iris.csv')
+dataset = dataset[1:4]
+```
+
+We start by creating a randomness seed, then we perform the method WCSS which is an algorithm that adds the distance between each point to its centroid within clusters. It is also called as the elbow method
+```r
+set.seed(6)
+wcss = vector()
+```
+
+We start a for which for each cluster from 1 to 10 will perform the sum of the kmeans of our data and we will filter it by the inertia of the data within its group
+```r
+for (i in 1:10) wcss[i] = sum(kmeans(dataset, i)$withinss)
+```
+
+and at the end we make our plot, indicating the data matrix to use, the type of figures we want and adding the labels
+```r
+plot(1:10,
+     wcss,
+     type = 'b',
+     main = paste('The Elbow Method'),
+     xlab = 'Number of clusters',
+     ylab = 'WCSS')
+```
+
+With everything done this gives us a graph, With these data we can choose our number of clusters. This is usually done by analyzing the points and in where the breaking point is seen and the following data no longer have as much difference we will know that this is the number we are looking for, in this case it is 3.
+
+![image](https://drive.google.com/uc?export=view&id=1lPc6RGPhHHReBhrlmifMQBv-d1N3nsP6)
+
+
+In the same way we generate another seed of randomness. we perform the function kmeans indicating the dataset and the number of centroids that we deduced from the graph above and our data saved within kmeans we do a filtration by the number of clusters
+```r
+set.seed(29)
+kmeans = kmeans(x = dataset, centers = 3)
+y_kmeans = kmeans$cluster
+```
+
+For the last steps we will need to initialize the necessary library. One time initialized we will proceed to graph with the clusplot function which graphs two-dimensional data densities, we tell you our full dataset along with our already leaked data. the other parameters are for display the data and are optional. And finally we add the labels
+```r
+library(cluster)
+clusplot(dataset,
+         y_kmeans,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 2,
+         plotchar = FALSE,
+         span = TRUE,
+         main = paste('Clasification of iris'),
+         xlab = 'features',
+         ylab = 'Clusters')
+```
+
+###  Data visualization
+
+![image](https://drive.google.com/uc?export=view&id=1m74Rke0NUnhf_JEJQfSab2mjFnuz88ZS)
+
+
+
+###  Conclusion
+This algorithm has different forms of implementation and varies between each library but the advantages have them all. Some of those advantages are that using aamount of massive data is much faster since it does not save as much information in memory and its implementation is very simple. But you also have problems like when there is data out of group (also called noise) is greatly affected or also that its quality depends a lot according to the measure of similarity between the data. In conclusion this method is quite good to classify data within data groups with great similarity to each other.
