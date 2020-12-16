@@ -3,6 +3,8 @@ getwd()
 setwd("C:/Users/yurid/Documents/DataMining/DATAMINING/Unit_4")
 getwd()
 
+dataset = read.csv(choose.files())
+
 dataset = read.csv('iris.csv')
 dataset = dataset[1:4]
 
@@ -21,6 +23,7 @@ set.seed(29)
 kmeans = kmeans(x = dataset, centers = 3)
 y_kmeans = kmeans$cluster
 
+
 library(cluster)
 clusplot(dataset,
          y_kmeans,
@@ -31,5 +34,5 @@ clusplot(dataset,
          plotchar = FALSE,
          span = TRUE,
          main = paste('Clasification of iris'),
-         xlab = '',
-         ylab = '')
+         xlab = 'features',
+         ylab = 'Clusters  ')
