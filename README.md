@@ -16,8 +16,7 @@ Table of contents
     - [Scatter plot by country](#scatter-plot-by-country)
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
-
-- [Unit 3](#unit-3)
+- [Unit 4](#unit-4)
   - [Evaluative Practice](#evaluative-practice-1)
     - [Introduccion](#introduccion)
     - [Code](#code)
@@ -489,11 +488,10 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
 
-# Unit 3
-___
+# Unit 4
 
 ## Evaluative Practice
---- 
+
 
 ### Introduccion
 In this evaluative practice we will present a data visualization using kmeans algorithm, which will make us the plot through clusters with similar features so we can compare the data
@@ -566,7 +564,7 @@ clusplot(dataset,
 
 ###  Data visualization
 
-![image](https://drive.google.com/uc?export=view&id=1m74Rke0NUnhf_JEJQfSab2mjFnuz88ZS)
+![img](https://drive.google.com/uc?export=view&id=1m74Rke0NUnhf_JEJQfSab2mjFnuz88ZS)
 
 
 
