@@ -7,7 +7,6 @@ Table of contents
 
 - [Unit 1](#unit-1)
   - [Practice 1](#practice-1)
-  - [Practice 1](#practice-1-1)
   - [Practice 2](#practice-2)
   - [Practice 3](#practice-3)
   - [Investigation](#investigation)
@@ -18,7 +17,7 @@ Table of contents
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
 - [Unit 2](#unit-2)
-  - [Practice 1](#practice-1-2)
+  - [Practice 1](#practice-1-1)
     - [Functions](#functions)
   - [Investigation](#investigation-1)
     - [Grammar of Graphics](#grammar-of-graphics)
@@ -32,11 +31,8 @@ Table of contents
 <div id='pr1' />
 
 # Unit 1
-## Practice 1
-___
-## Practice 1
 
----
+## Practice 1
 
 Test the Law Of Large Numbers for N random normally distributed numbers with mean = 0, stdev=1
 
@@ -93,7 +89,6 @@ print (result)
 
 ## Practice 2
 
----
 
 Functions
 
@@ -226,8 +221,6 @@ plot(density(x))
 <div id='pr3'/>
 
 ## Practice 3
-
----
 
 Scenario: You are a Data Scientist working for a consulting firm.
 One of your colleagues from the Auditing Department has asked you
@@ -498,11 +491,7 @@ The biggest change we can see is that in 2013 the fertility rate of all regions 
 
 
 # Unit 2
-___
 ## Practice 1
-
----
-
 ### Functions
 
 Practice find 5 more  ggplot functions in R and make an example of it.
@@ -607,7 +596,6 @@ library(ggplot2)
 
 ## Investigation
 
----
 
 ### Grammar of Graphics
 In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. 
@@ -631,7 +619,6 @@ It is interesting to know that two different types of graphs can be made within 
 
 ## Evaluative Practice
 
----
 
 Develop the following problem with R and RStudio for knowledge extraction
 that the problem requires.
