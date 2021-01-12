@@ -28,7 +28,7 @@ Table of contents
     - [Final plot](#final-plot)
     - [Conclusion](#conclusion)
 - [Unit 3](#unit-3)
-  - [Practice 1](#practice-1-1)
+  - [Practice 1](#practice-1-2)
     - [BackwardElimination](#backwardelimination)
   - [Practice 1 -1](#practice-1--1)
     - [Simple Logistic Regression](#simple-logistic-regression)
@@ -47,18 +47,19 @@ Table of contents
   - [Homework](#homework)
     - [Machine Learning](#machine-learning)
     - [Machine Learning](#machine-learning-1)
-  - [Evaluative Practice](#evaluative-practice-1)
+  - [Evaluative Practice](#evaluative-practice-2)
     - [Introduccion](#introduccion)
-    - [Code](#code)
+    - [Code](#code-1)
     - [Data visualization](#data-visualization)
     - [Interpretation of the results](#interpretation-of-the-results)
     - [Conclution](#conclution)
 - [Unit 4](#unit-4)
-  - [Evaluative Practice](#evaluative-practice-1)
-    - [Introduccion](#introduccion)
-    - [Code](#code)
-    - [Data visualization](#data-visualization)
-    - [Conclusion](#conclusion)
+    - [Introduccion](#introduccion-1)
+    - [Code](#code-2)
+    - [Data visualization](#data-visualization-1)
+    - [Conclusion](#conclusion-1)
+
+
 <div id='pr1' />
 
 # Unit 1
