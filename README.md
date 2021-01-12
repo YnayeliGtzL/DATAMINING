@@ -54,7 +54,7 @@ Table of contents
     - [Interpretation of the results](#interpretation-of-the-results)
     - [Conclution](#conclution)
 - [Unit 4](#unit-4)
-    - [Introduccion](#introduccion-1)
+    - [Introduction](#introduction-1)
     - [Code](#code-2)
     - [Data visualization](#data-visualization-1)
     - [Conclusion](#conclusion-1)
@@ -1603,7 +1603,7 @@ It was honestly very interesting to realize during the course of the making of d
 We can say that the Naive Bayes function is an elegant way to implement this algorithm, apart from that it helps us a lot to visualize the data in a consistent way.
 
 # Unit 4
-### Introduccion
+### Introduction
 In this evaluative practice we will present a data visualization using kmeans algorithm, which will make us the plot through clusters with similar features so we can compare the data
 
 ### Code
