@@ -1,2 +1,1 @@
-# DATAMINING
-Class Data Mining
+
