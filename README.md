@@ -16,6 +16,17 @@ Table of contents
     - [Scatter plot by country](#scatter-plot-by-country)
     - [Scatter plot by regions](#scatter-plot-by-regions)
       - [Years comparison](#years-comparison)
+- [Unit 2](#unit-2)
+  - [Practice 1](#practice-1-1)
+    - [Functions](#functions)
+  - [Investigation](#investigation-1)
+    - [Grammar of Graphics](#grammar-of-graphics)
+    - [Grammar of Graphics 2](#grammar-of-graphics-2)
+  - [Evaluative Practice](#evaluative-practice-1)
+    - [Introduction](#introduction)
+    - [Code](#code)
+    - [Final plot](#final-plot)
+    - [Conclusion](#conclusion)
 
 <div id='pr1' />
 
@@ -79,7 +90,6 @@ print (result)
 
 ## Practice 2
 
----
 
 Functions
 
@@ -213,8 +223,6 @@ plot(density(x))
 
 ## Practice 3
 
----
-
 Scenario: You are a Data Scientist working for a consulting firm.
 One of your colleagues from the Auditing Department has asked you
 to help them assess the financial statement of organization X.
@@ -339,7 +347,9 @@ M
 ```
 <div id='in3'/>
 
+
 ## Investigation
+
 ### Pair Coding
 In this small investigation we will see the concept of pair coding because it was not found as such, the concept of pair programming or pair programming is seen, in the breakdown of the investigation the benefits of using this type of programming are revealed and the difficulties of this.
 -- Gutierrez Luna Yuridia Nayeli
@@ -480,3 +490,313 @@ Life expectancy also has these extremes in which we see Europe with a life expec
 
 The biggest change we can see is that in 2013 the fertility rate of all regions dropped considerably, Africa is still the highest but we can see a reduction. This event can be attributed to the level of education and the socioeconomic status of each region. The constant growth of countries makes societies evolve, we can clearly see this in the 1960 graph where most of the regions are below 60 years with a fairly high fertility rate.
 
+
+# Unit 2
+## Practice 1
+### Functions
+
+Practice find 5 more  ggplot functions in R and make an example of it.
+
+
+**Geom bar**
+
+This geometry generates a bar plotter (bar graph), we select in X asthe data will be grouped
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2.  We generate the plot with simple attributes to ggplot we send it as a parameter ofdata the data frame called year 1960 and to this we add the geometry ofgeom_bar with the aesthetics of the X axis is assigned that we will take Region as ourindependent variable.
+
+```r
+ggplot(data=año.1960) + geom_bar(aes(x=Región))
+```
+![image](https://drive.google.com/uc?export=view&id=12z80zvDUx7GvgB5BDJJ3UfnPN9-Hzqo5)
+
+**Geom Polygon**
+
+This library generates a plot in a geometric way according to the dataprovided, in the following example we will show the mapping of a region with data fromlatitude and longitude
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We generate the plott in black and white, with the axes according to latitude and longitude
+```r
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black")
+```
+
+> 3. To the next we add map projections to make it have a sizesuitable for the work area. coord_quickmap () it is a quick approximationkeep straight lines
+```r
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white", colour = "black") +
+  coord_quickmap()
+```
+
+![image](https://drive.google.com/uc?export=view&id=1GyuXdkenTtjBjq_-MKtB3neOW_IBg069)
+
+**Geom Boxplot**
+
+The box plot is used in numerical variables since it will provide us with both themedian such as quartiles and outliers Create boxes in which data can be grouped,color them and show the distribution of the data
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We create a simple graph where we specify the dataset and add the functiongeometric boxplot, which will allow us to visualize the data in the form of a box, andto represent the data as required we use aes with the factorcorresponding, in this case "x" is am and "y" is mpg
+```r
+ggplot(data = mtcars) + geom_boxplot(aes(x=factor(am), y=mpg))
+```
+
+![image](https://drive.google.com/uc?export=view&id=1jg8YI2pRFDOkiow0bBWK2xsMusmgn5tb)
+
+
+**Facet Grid**
+
+One way to add additional variables is with aesthetic ones. Another way particularlyuseful for categorical variables is to divide the graph into facets, that is,sub-graphs each showing a subset of the data
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. ggplot where we specify the data, a is to tell how we want to visualizethe data and geopoint to define the geometry type
+```r
+ggplot(mtcars, aes(mpg, qsec)) + geom_point(aes(size = hp), alpha = 0.4)
+```
+
+> 3. How do you want to separate the graph into facets according to the combinations of twovariables is added facet_grid () to the code, separating the two factors with a ~
+```r
++ facet_grid(factor(cyl)~factor(am))
+```
+
+![image](https://drive.google.com/uc?export=view&id=1pgRmA_zS24TkRlUrB3VoEcCO2AS0aSFz)
+
+ **Geom Violin**
+
+Violin charts allow you to visualize the distribution of a numeric variable for one orvarious groups. It is very close to a boxplot, but allows a deeper understandingof density. Violins are especially suited when the amount of data ishuge and it is impossible to show individual observations. The violin graphics area very convenient way to display the data and probably deserves more attentioncompared to box plots which can sometimes hide characteristics of thedata
+> 1. In order to use this type of plot you need to import the ggplot library
+```r
+library(ggplot2)
+```
+
+> 2. We load the data frame, select the axes of the graph and its fill,we add the violin geometry with a transparency of 0.6, we modify withlabs the labels of the plot
+```r
+  ggplot(iris, aes(x=Species, y=Sepal.Width, fill=Species)) +
+    geom_violin(alpha=0.6) +
+    labs(title="Iris", 
+         subtitle="Distribución del ancho del sépalo por especie", 
+         caption="Fuente: Edgar Anderson's Iris Data", 
+         y="Ancho del sépalo", 
+         x="Especie",
+         color=NULL) +
+    theme_elegante()
+```
+![image](https://drive.google.com/uc?export=view&id=1nOWYvDy565WnJWULd2e8zN1pSYxlHZOc)
+
+
+## Investigation
+
+
+### Grammar of Graphics
+In this research we talk about the structure that any graph must have compared grammatically with a sentence, as well as we can find tips on the writing of these. Composition schemes that are related to some geometric perceptual characteristic and how to take advantage of them are also discussed. 
+
+<div align="right">
+- Bermudez Ornelas Alberto
+</div>
+
+[Full Version](https://github.com/YnayeliGtzL/DATAMINING/blob/Unit_2/Unit_2/Investigations/GrammarGraphics_Bermudez.md)
+
+### Grammar of Graphics 2
+In this research-task about the grammar in the graphing of in R to ggplot2 we will see which are the attributes that are taken into account to perform the plotting of the data and to be able to differentiate between data and be able to obtain information from our data in stupid.
+It is interesting to know that two different types of graphs can be made within the same graph because it separates the data to do this different geoms are used.
+
+<div align="right">
+- Gutierrez Luna Yuridia Nayeli
+</div>
+
+[Full Version](/Unit_2/Investigations/GrammarGraphics_Gutierrez.md)
+
+
+## Evaluative Practice
+
+
+Develop the following problem with R and RStudio for knowledge extraction
+that the problem requires.
+The directors of the movie review website are very happy with their previous installment and now they have a new requirement for you.
+The previous consultant had created a chart for them which is illustrated in the image below.
+
+
+![image](https://drive.google.com/uc?export=view&id=1UnwDAm6EidXhp7jZ_DUwPmEdSN9Wq6ok)
+
+
+However, the R code used to create the graph has been lost and cannot
+be recovered.
+
+Your task is to create the code that will recreate the same table making it look as close to the original as possible.
+
+### Introduction
+In this evaluative practice, the above is requested, so in order to comply with the request, the data load is carried out in a data frame, the data filtering in 2 cycles, then the plotting is started separately in order to keep an order of changes.
+Let's venture into the explanation of our code.
+### Code
+Open the corresponding path where the file is saved to import the data. get allows us to visualize the path in the console and with the set line we define the path with which we will be working.
+
+```r
+getwd ()
+setwd ("C: / Users / yurid / Documents / DataMining / DATAMINING / Unit_2 / Evaluative_Practice")
+getwd ()
+```
+
+The data is loaded into a data frame for manipulation. We specify the name of the file where we will get our data and add it to a variable.
+
+```r
+dataset <- read.csv ('Project-Data.csv')
+```
+
+Second option to load the data and not have to modify the code. This helps us a lot in case we don't want to modify the original code and since we are working in duos it allows us to choose the file with the data from wherever it is.
+
+```r
+dataset <- read.csv (file.choose ())
+```
+
+The dataframe is observed for observation and analysis. With summary we can see the summary of the result of various model adjustment functions
+
+```r
+summary (dataset)
+```
+
+The necessary libraries for data manipulation are loaded. ggplot2 allows us to make the graphs of our plots as well as adds many functions with which we can work
+
+```r
+library (ggplot2)
+```
+
+For the realization of filters the dply library was used. It is necessary to install this library in order to use it later. This library adds the necessary functions for filtering information in conjunction with ggplot2.
+```r
+# install.packages ("dplyr")
+library (dplyr)
+```
+
+To change the font we need, we install the library
+
+```r
+# install.packages ("extrafont")
+```
+
+The font library is loaded
+```r
+library (extrafont)
+```
+
+After we import all the fonts into our system, this may change depending on your OS. Only done once each file is opened
+```r
+font_import ()
+```
+We execute the command to display the fonts so that "R" can recognize them. It is important because without this line of code the library may not work
+
+```r
+fonts ()
+```
+
+A new dataframe is created which takes the data from the “dataset” filtering the data to only add the requested genres. The% in% function of the dplyr library is used which makes data filtering possible
+
+```r
+GenreF <-filter (dataset, Genre% in% c ("action", "adventure",
+                                     "animation", "comedy", "drama"))
+```
+
+From the previous dataframe, a new one is created to filter the information to only take the requested studies, taking into account only the data that the previous one and this one comprise the two filters.
+
+```r
+StudioF <- filter (GenreF, Studio% in% c ("Buena Vista Studios",
+                                          "Fox", "Paramount Pictures",
+                                          "Sony", "Universal", "WB"))
+```
+
+A variable is created in which we are going to load the plot of the data that it will contain for the X and Y axes that will be generic for the plot. It is said that the data used will be from StudioF and we say that we are going to visualize the axes.
+
+```r
+u <- ggplot (StudioF, aes (x = Genre, y = Gross ... US))
+```
+
+We added the Jitter geometry for studies. Here we say that we want to visualize by color with the Studio factor and size the budget
+
+```r
+j <- u + geom_jitter (aes (color = Studio, size = Budget ... mill.)) +
+```
+
+As the data looked too crowded we used this function to rescale the data to be able to visualize it in a better way
+
+```r
+  scale_size_continuous (range = c (2, 5),
+                        trans = scales :: exp_trans (base = 1.2))
+```
+
+Viewing our plot
+
+```r
+j
+```
+
+We add boxplot to group by gender and Gross by placing a medium transparency and removing redundant data from the graph
+
+```r
+g <-j + geom_boxplot (alpha = 0.2, outlier.colour = NA)
+```
+
+Viewing our plot
+
+```r
+g
+```
+We place the title of our plot
+
+```r
+t <-g + ggtitle ("Domestic Gross% by Genre")
+```
+
+Viewing our plot
+
+```r
+t
+```
+
+We put the name of the X and Y axes
+```r
+e <- t + xlab ("Genre") + ylab ("Gross% US")
+```
+
+Viewing our plot
+```r
+e
+```
+
+We add the theme for the labels. We say that the text elements of the titles of X and Y will be purple and of a size of 15, the text of the title will be of a size of 25 and that it will be centered; "Hjust = 0.5", we say that all the text within the graph will use the font "Comic Sans MS", finally we change the name of the label to the size "Budget"
+
+```r
+th <-e + theme (axis.title.x = element_text (color = "Purple", size = 15),
+              axis.title.y = element_text (color = "Purple", size = 15),
+              plot.title = element_text (size = 25, hjust = 0.5)
+              , text = element_text (family = "Comic Sans MS")
+) + labs (yes
+```
+Viewing our plot
+
+```r
+th
+```
+
+### Final plot
+
+![img](https://drive.google.com/uc?export=view&id=1DXZlZOr_VAFqaYi9-Bz_R2k-V29Qp4wO)
+
+
+### Conclusion
+
+It is important to know the grammar of the graphs in order to be able to manipulate them and to be able to make the plotted data become important information for the end user who views it.
+
+The way in which the data was displayed is quite interesting, the use of colors to make it more descriptive for the end user; the use of jitter with the geom box to observe the data in a friendly way.
+
+Regarding the graph, we can carry out the analysis that, most of the movies are action films, because it is one of the safest to invest, we can see that there are different budgets and even so, all are in an average of 40 million gross income . The other option that seems safe to invest is animation and more specifically speaking of "Buena Vista Studios" we can see that they have a good gross income within the box, even with the WB study we can see that they have good results in terms of income.
+
+On the other hand, drama and adventure are one of the genres in which it is risky to make an investment because it has a fairly marked point of acceptance and rejection since it may or may not please, so these genres are a whole wheel of luck Of course, for success or rejection, enter other types of variables within the experience of the end user.
