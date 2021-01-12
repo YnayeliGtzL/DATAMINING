@@ -1,4 +1,3 @@
-
 **DATAMINING**
 
 **Content**
@@ -1680,3 +1679,4 @@ clusplot(dataset,
 
 ###  Conclusion
 This algorithm has different forms of implementation and varies between each library but the advantages have them all. Some of those advantages are that using aamount of massive data is much faster since it does not save as much information in memory and its implementation is very simple. But you also have problems like when there is data out of group (also called noise) is greatly affected or also that its quality depends a lot according to the measure of similarity between the data. In conclusion this method is quite good to classify data within data groups with great similarity to each other.
+
